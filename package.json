@@ -1,0 +1,27 @@
+{
+  "name": "twitch-web",
+  "version": "0.0.0",
+  "description": "Every Twitch.tv user has a website",
+  "keywords": [],
+  "main": "app.js",
+  "engines": {
+    "node": "^4.x.x"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "react": "^0.14.5",
+    "react-jsx": "^0.13.0"
+  },
+  "author": {
+    "name": "Darryl Dixon",
+    "email": "piecedigitalstudios@gmail.com",
+    "url": "http://piecedigital.github.io"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.0",
+    "gulp": "^3.9.0",
+    "morgan": "^1.6.1",
+    "node-sass": "^3.4.2"
+  }
+}
