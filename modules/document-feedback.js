@@ -16,7 +16,7 @@ var React = require("react"),
 var indexLayout = jsx.server(read(path.join(__dirname, '../views/index.jsx'), 'utf-8'), {raw:true,filename:"index.jsx",debug:true});
 
 module.exports = {
-	getDocument: function(docName, renderData) {
+	getDocument(docName, renderData) {
 		var file = this.getPage(docName, "server");
 
 		var RenderDocument = React.createClass({
@@ -39,13 +39,21 @@ module.exports = {
 
 		return indexLayout(renderObjectData, { html : true });
 	},
-	renderJS: function(docName, renderData) {
+	renderJS(docName, renderData) {
 		var clientJS = `${ this.getPage(docName, "client").toString() }`
 		
 		//console.log(jsx.server(clientJS))
 
-		var parentBuild =
-`var RenderDocument = React.createClass({
+		var parentBuild = this.reactViewTemplate(JSON.stringify(renderData),clientJS);
+
+		fs.writeFile(`${__dirname}/../public/js/client-react-parent.js`, parentBuild);
+	},
+	getPage(docName, type) {
+		return jsx[type](read(path.join(__dirname, `../views/${docName}.jsx`), 'utf-8'), {filename:docName,debug:true}, {ecma:"es5"});
+	},
+
+	reactViewTemplate(objectData, pageData) {
+		return `var RenderDocument = React.createClass({
 	displayName: "RenderDocument",
 
 	getInistialState: function() {
@@ -60,17 +68,11 @@ var DocumentChild = React.createClass({
 	displayName: "RenderDocument",
 
 	render: function render() {
-		return (${clientJS}(this))
+		return (${pageData}(this))
 	}
 });
 
 ReactDOM.render(React.createElement(RenderDocument, null), document.querySelector("#render-document"));
 `;
-		var childBuild = clientJS;
-
-		fs.writeFile(`${__dirname}/../public/js/client-react-parent.js`, parentBuild);
-	},
-	getPage(docName, type) {
-		return jsx[type](read(path.join(__dirname, `../views/${docName}.jsx`), 'utf-8'), {filename:docName,debug:true}, {ecma:"es5"});
 	}
 }

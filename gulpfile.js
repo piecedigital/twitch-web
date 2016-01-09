@@ -19,17 +19,9 @@ function renderSass() {
 	});
 }
 
-gulp.task("start", function() {
-	nodemon({
-		script: "app.js",
-		watch: ["app.js", "modules/**"],
-		ignore: ["public/**", "node_modules/**", "gulpfile.js"],
-		env: { "NODE_ENV" : "devemopment" }
-	});
-});
 
 gulp.task("serve", function() {
-	gulp.watch(["private/sass/*.scss"]).on("change", renderSass);
+	gulp.watch(["./private/sass/*.scss"]).on("change", renderSass);
 });
 
 gulp.task("default", ["serve"]);

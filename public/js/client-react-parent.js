@@ -1,16 +1,17 @@
 var RenderDocument = React.createClass({
 	displayName: "RenderDocument",
 
+	getInistialState: function() {
+		return {"title":"PieceDigital | Twitch Web","streamer":"PieceDigital"};
+	}
 	render: function render() {
-		return React.createElement( DocumentChild, {"title":"PieceDigital | Twitch Web","streamer":"PieceDigital"} );
+		return React.createElement( DocumentChild, this.state );
 	}
 });
 
 var DocumentChild = React.createClass({
 	displayName: "RenderDocument",
-	getInistialState: function() {
-		return this.props;
-	},
+
 	render: function render() {
 		return (function anonymous(data,config
 /**/) {
