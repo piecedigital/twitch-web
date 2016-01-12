@@ -12,16 +12,17 @@ var React = require("react"),
 			return arr.join("/");
 		}
 	};
-
+// get parent document/layout
 var indexLayout = jsx.server(read(path.join(__dirname, '../views/index.jsx'), 'utf-8'), {raw:true,filename:"index.jsx",debug:true});
 
 module.exports = {
-	getDocument(docName, renderData) {
-		var file = this.getPage(docName, "server");
+	getDocument(docName, renderData = {}) {
+		// get page layout
+		var childPage = this.getPage(docName, "server");
 
 		var RenderDocument = React.createClass({
 			render: function render() {
-				return file({ props : renderData });
+				return childPage({ props : renderData });
 			}
 		});
 		
@@ -44,11 +45,13 @@ module.exports = {
 		
 		//console.log(jsx.server(clientJS))
 
-		var parentBuild = this.reactViewTemplate(JSON.stringify(renderData),clientJS);
+		// saved child jsx page to a file to be used client-side
+		var parentBuild = this.reactViewTemplate(renderData,clientJS);
 
 		fs.writeFile(`${__dirname}/../public/js/client-react-parent.js`, parentBuild);
 	},
 	getPage(docName, type) {
+		// gets any jsx page (docName) for "client" or "server" use (type)
 		return jsx[type](read(path.join(__dirname, `../views/${docName}.jsx`), 'utf-8'), {filename:docName,debug:true}, {ecma:"es5"});
 	},
 
@@ -57,7 +60,7 @@ module.exports = {
 	displayName: "RenderDocument",
 
 	getInistialState: function() {
-		return ${JSON.stringify(renderData)};
+		return ${JSON.stringify(objectData)};
 	}
 	render: function render() {
 		return React.createElement( DocumentChild, this.state );
@@ -67,6 +70,9 @@ module.exports = {
 var DocumentChild = React.createClass({
 	displayName: "RenderDocument",
 
+	sendMessage: function() {
+		window.open("http://www.twitch.tv/message/compose?to=jooygirl", "_blank");
+	};
 	render: function render() {
 		return (${pageData}(this))
 	}
