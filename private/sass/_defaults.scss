@@ -1,0 +1,20 @@
+//default colors
+$veryLightBlue: #e8f8ff;
+$lightBlue: #9be0ff;
+$higherMidBlue: #17B4FB;
+$midBlue: #00a2eb;
+$tintedBlue: #058BC7;
+$dimBlue: #017ab1;
+$darkBlue: #004B6E;
+
+$offBlack: rgba(25, 25, 31, 1);// #19191f
+$offWhite: rgba(230,230,230,1);
+
+//others
+$em: 16px;
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  @include transition(.5s all);
+}
