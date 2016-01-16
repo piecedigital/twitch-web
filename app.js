@@ -3,15 +3,7 @@ var express = require("express"),
 	port = process.env["PORT"] || 8080,
 	morgan = require("morgan"),
 
-	path = {
-		join() {
-			var arr = [];
-			for(var i = 0; i < arguments.length; i++) {
-				arr.push(arguments[i]);
-			}
-			return arr.join("/");
-		}
-	};
+	path = require("path");
 process.env["NODE_ENV"] = process.env["NODE_ENV"] || "dev";
 
 app.use(morgan("dev"));

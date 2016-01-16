@@ -2,8 +2,12 @@ var React = require("react"),
 	jsx = require("react-jsx"),
 	fs = require("fs"),
 	read = fs.readFileSync,
+	http = {
+		http: require("http"),
+		https: require("https")
+	},
 
-	path = {
+	/*path = {
 		join() {
 			var arr = [];
 			for(var i = 0; i < arguments.length; i++) {
@@ -11,34 +15,179 @@ var React = require("react"),
 			}
 			return arr.join("/");
 		}
+	},*/
+	path = require("path");
+
+var ajax = function(obj) {
+	/*var postData = querystring.stringify({
+	  'msg' : 'Hello World!'
+	});*/
+
+	var hostname = obj.url.match(/(www)?([\w\d\-\_]*\.)?([\w\d\-\_]*[\.\:]{1,})([\w\d\-\_]*)(\.[\w\d\-\_]*)?/gi).join(""),
+		pathname = obj.url.replace(/(www)?([\w\d\-\_]*\.)?([\w\d\-\_]*\.)([\w\d\-\_]*)(\.[\w\d\-\_]*)?/gi, "");
+
+	var contentTypes = {
+    json: "application/json",
+    text: "text/plain"
+  }
+
+	var options = {
+	  hostname: hostname || "",
+	  path: pathname,
+	  method: obj.type || "GET",
+	  headers: {
+	    'Content-Type': contentTypes[obj.dataType] || "text/plain"//,
+	    //'Content-Length': postData.length
+	  }
 	};
+
+	var fullChunks = "";
+
+	var req = http[obj.connType || "http"].request(options, function(res) {
+	  console.log('STATUS: ' + res.statusCode);
+	  //console.log('HEADERS: ' + JSON.stringify(res.headers));
+	  res.setEncoding('utf8');
+	  res.on('data', function (chunk) {
+	    //console.log('BODY: ' + chunk);
+	    fullChunks += chunk;
+	  });
+	  res.on('end', function() {
+	    console.log('No more data in response.');
+	    //console.log(fullChunks);
+
+	    obj[(res.statusCode < 400) ? "success" : "error"](fullChunks);
+	  })
+	});
+	req.end();
+
+	req.on('error', function(e) {
+  	console.log('problem with request:', e);
+	});
+};
+
 // get parent document/layout
 var indexLayout = jsx.server(read(path.join(__dirname, '../views/index.jsx'), 'utf-8'), {raw:true,filename:"index.jsx",debug:true});
 
 module.exports = {
-	getDocument(docName, renderData = {}) {
-		// get page layout
-		var childPage = this.getPage(docName, "server");
+	getDocument(docName, renderData, callback) {
+		renderData = renderData || {};
 
-		var RenderDocument = React.createClass({
-			render: function render() {
-				return childPage({ props : renderData });
+		var proceed = function (data) {
+			//console.log(data)
+			// get page layout
+			var childPage = this.getPage(docName, "server");
+
+			var RenderDocument = React.createClass({
+				render: function render() {
+					return childPage({ props : renderData, state : data });
+				}
+			});
+			
+			var renderObjectData = {
+				RenderDocument: RenderDocument,
+				title: "Hello World",
+				streamer: "foo bar"
+			};
+
+			for(var key in renderData) {
+				renderObjectData[key] = renderData[key];
 			}
-		});
-		
-		var renderObjectData = {
-			RenderDocument: RenderDocument,
-			title: "Hello World",
-			streamer: "foo bar"
+
+			this.renderJS(docName, renderData);
+
+			callback(indexLayout(renderObjectData, { html : true }))
+		}.bind(this);
+
+		var ajaxDataCollection = {
+			callsToMake: 4,
+			callsMade: 0,
+			finish() {
+				if(this.callsMade === this.callsToMake) {
+					proceed({
+						userData: this.userData,
+						channelData: this.channelData,
+						panelData: this.panelData,
+						streamData: this.streamData
+					});
+				}
+			},
+			getUserData() {
+				var self = this;
+				ajax({
+					connType: "https",
+					url: `api.twitch.tv/kraken/users/${renderData.streamer}`,
+					dataType: "json",
+					success: function(userData) {
+						//console.log("success", data);
+						self.userData = JSON.parse(userData);
+						self.callsMade += 1;
+						self.finish();
+					},
+					error: function(data) {
+						console.log("error", data);
+					}
+				})
+			},
+			getChannelData() {
+				var self = this;
+				ajax({
+					connType: "https",
+					url: `api.twitch.tv/kraken/channels/${renderData.streamer}`,
+					dataType: "json",
+					success: function(channelData) {
+						//console.log("success", data);
+						self.channelData = JSON.parse(channelData);
+						self.callsMade += 1;
+						self.finish();
+					},
+					error: function(data) {
+						console.log("error", data);
+					}
+				})
+			},
+			getPanelData() {
+				var self = this;
+				ajax({
+					connType: "https",
+					url: `api.twitch.tv/api/channels/${renderData.streamer}/panels`,
+					dataType: "json",
+					success: function(panelData) {
+						//console.log("success", data);
+						self.panelData = JSON.parse(panelData);
+						self.callsMade += 1;
+						self.finish();
+					},
+					error: function(data) {
+						console.log("error", data);
+					}
+				})
+			},
+			getStreamData() {
+				var self = this;
+				ajax({
+					connType: "https",
+					url: `api.twitch.tv/kraken/streams/${renderData.streamer}`,
+					dataType: "json",
+					success: function(streamData) {
+						//console.log("success", data);
+						self.streamData = JSON.parse(streamData);
+						self.callsMade += 1;
+						self.finish();
+					},
+					error: function(data) {
+						console.log("error", data);
+					}
+				})
+			},
+			callAllOnce() {
+				this.getUserData();
+				this.getChannelData();
+				this.getPanelData();
+				this.getStreamData();
+			}
 		};
 
-		for(var key in renderData) {
-			renderObjectData[key] = renderData[key];
-		}
-
-		this.renderJS(docName, renderData);
-
-		return indexLayout(renderObjectData, { html : true });
+		ajaxDataCollection.callAllOnce();
 	},
 	renderJS(docName, renderData) {
 		var clientJS = `${ this.getPage(docName, "client").toString() }`
@@ -61,7 +210,7 @@ module.exports = {
 
 	getInistialState: function() {
 		return ${JSON.stringify(objectData)};
-	}
+	},
 	render: function render() {
 		return React.createElement( DocumentChild, this.state );
 	}
@@ -72,7 +221,7 @@ var DocumentChild = React.createClass({
 
 	sendMessage: function() {
 		window.open("http://www.twitch.tv/message/compose?to=jooygirl", "_blank");
-	};
+	},
 	render: function render() {
 		return (${pageData}(this))
 	}
