@@ -5,13 +5,13 @@
   	<div className="side-panel | pos-absolute pos-top-1_0 pos-left-1_0 width-20_0 x-pad-1_0 y-pad-1_0 border-radius-1_0 rgb-bg-220_240_250">
       <div className="profile-image | img-contain x-pad-1_0 parent">
         <div className=" | x-pad-0_5 y-pad-0_5 border-radius-0_8 rgb-bg-100_200_250">
-          <img className=" | display-block border-radius-0_5" src="http://piecedigital.github.io/images/photo-of-me.png" />
+          <img className=" | display-block border-radius-0_5" src={this.state.userData.logo} />
           <div className="channel-status | center-justify col-2">
             <h3 className="unset top-marg-0_5 rgb-text-240_250_250">Offline</h3>
           </div>
           <div className="channel-options | col-2">
             <div className="message">
-              <a className=" | rgb-text-240_250_250 no-underline bold" href="http://www.twitch.tv/message/compose?to=piecedigital" target="_blank">Message</a>
+              <a className=" | rgb-text-240_250_250 no-underline bold" href={`http://www.twitch.tv/message/compose?to=${this.state.userData.name}`} target="_blank">Message</a>
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@
         <div className="profile-image | inline-block width-5_0">
           <div className="image-container">
             <div className=" | width-4_0 x-pad-0_2 y-pad-0_2 border-radius-0_5 rgb-bg-100_200_250 img-contain">
-              <img className=" | display-block border-radius-0_5" src="http://piecedigital.github.io/images/photo-of-me.png" />
+              <img className=" | display-block border-radius-0_5" src={this.state.userData.logo} />
             </div>
           </div>
         </div>
@@ -67,23 +67,23 @@
             <h1 className=" | unset font-size-2_5">{this.state.channelData.status}</h1>
           </div>
           <div className="game">
-            <span className="user | bold">{this.state.userData.display_name}</span> playing <a className="game | bold rgb-text-40_40_40 no-underline" href="http://www.twitch.tv/directory/game/programming">{this.state.channelData.game}</a>
+            <span className="user | bold">{this.state.userData.display_name}</span> playing <a className="game | bold rgb-text-40_40_40 no-underline" href={`http://www.twitch.tv/directory/game/${this.state.channelData.game}`}>{this.state.channelData.game}</a>
           </div>
         </div>
       </div>
       <div className="stream-section | pos-relative max-height-34_0 right-pad-22_0 y-marg-1_0">
         <div className="video-embed | full-width">
-          <iframe className=" | fillout" src="http://player.twitch.tv/?channel=piecedigital" frameBorder="0"></iframe>
+          <iframe className=" | fillout" src={`http://player.twitch.tv/?channel=${this.state.userData.name}`} frameBorder="0"></iframe>
         </div>
         <div className="chat-embed | pos-absolute pos-top-0_0 pos-right-0_0 width-21_0">
-          <iframe className=" | fillout" src="http://twitch.tv/piecedigital/chat" frameBorder="0"></iframe>
+          <iframe className=" | fillout" src={`http://twitch.tv/${this.state.userData.name}/chat`} frameBorder="0"></iframe>
         </div>
       </div>
       <div className="options-belt |">
         <div className="auth-needed | col-2-1 left-justify">
           <div className="follow | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer">
             <span>Follow</span>
-            <div className="notification-option | cursor-">
+            <div className="notification-option | cursor-pointer">
             </div>
           </div>
           <div className="share | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer">
@@ -116,12 +116,43 @@
           <h1 className=" | unset">Panels</h1>
         </div>
         {
-        	this.state.panelData.map(function(panel) {
-        		return (
-	        		<div className="panel | col-3-2-1 x-pad-0_5 y-pad-0_5">
-			          <div className=" | height-20_0 rgb-bg-100_200_250 overflow-auto">{panel.data.description}</div>
-			        </div>
-		        )
+        	this.state.panelData.map(function(panel, ind) {
+            var link = panel.data.link || "";
+        		if(link) {
+              return (
+                <div key={ind} className="panel | col-3-2-1 x-pad-0_5 y-pad-0_5 no-underline rgb-text-40_40_40">
+                  <a href={panel.data.link} target="_blank" className=" | block height-15_0 rgb-bg-100_200_250 overflow-auto">
+                    {
+                      (panel.data.image) ?
+                        <div className="image | img-contain x-pad-0_5 y-pad-0_5 rgb-bg-60_160_210">
+                          <img src={panel.data.image} />
+                        </div>
+                      : ""
+                    }
+                    <div className="body | image-contain x-pad-0_5 y-pad-0_5">
+                      {panel.data.description}
+                    </div>
+                  </a>
+                </div>
+              )
+            } else {
+              return (
+                <div key={ind} className="panel | col-3-2-1 x-pad-0_5 y-pad-0_5">
+                  <div className=" | height-15_0 rgb-bg-100_200_250 overflow-auto">
+                    {
+                      (panel.data.image) ?
+                        <div className="image | img-contain x-pad-0_5 y-pad-0_5 rgb-bg-60_160_210">
+                          <img src={panel.data.image} />
+                        </div>
+                      : ""
+                    }
+                    <div className="body | image-contain x-pad-0_5 y-pad-0_5">
+                      {panel.data.description}
+                    </div>
+                  </div>
+                </div>
+              )
+            }
 		      })
 		    }
       </div>
@@ -130,30 +161,18 @@
         <div className="title">
           <h1 className=" | unset">Past Broadcasts</h1>
         </div>
-        <div className="panel | col-3-2-1 x-pad-0_5 y-pad-0_5">
-          <div className=" | height-20_0 rgb-bg-100_200_250"></div>
-        </div>
-        <div className="panel | col-3-2-1 x-pad-0_5 y-pad-0_5">
-          <div className=" | height-20_0 rgb-bg-100_200_250"></div>
-        </div>
-        <div className="panel | col-3-2-1 x-pad-0_5 y-pad-0_5">
-          <div className=" | height-20_0 rgb-bg-100_200_250"></div>
-        </div>
-      </div>
-      <div className="separator | height-0_1 y-marg-1_0 rgb-bg-100_200_250"></div>
-      <div className="channel-highLights |">
-        <div className="title">
-          <h1 className=" | unset">HighLights</h1>
-        </div>
-        <div className="panel | col-3-2-1 x-pad-0_5 y-pad-0_5">
-          <div className=" | height-20_0 rgb-bg-100_200_250"></div>
-        </div>
-        <div className="panel | col-3-2-1 x-pad-0_5 y-pad-0_5">
-          <div className=" | height-20_0 rgb-bg-100_200_250"></div>
-        </div>
-        <div className="panel | col-3-2-1 x-pad-0_5 y-pad-0_5">
-          <div className=" | height-20_0 rgb-bg-100_200_250"></div>
-        </div>
+        {
+          this.state.videoData.videos.map(function(video, ind) {
+            return (
+              <div key={ind} className="video | col-3-2-1 x-pad-0_5 y-pad-0_5 no-underline rgb-text-40_40_40">
+                <a href={video._links.self} data-id={video._links._id} target="_blank" className=" | block height-15_0 rgb-bg-100_200_250 overflow-auto" style={{
+                  backgroundImage: `url(${video.preview})`
+                }}>
+                </a>
+              </div>
+            )
+          })
+        }
       </div>
     </div>
 

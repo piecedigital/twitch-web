@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
   </head>
-  <body class="unset">
+  <body className="unset">
     <RenderDocument />
   	<script src="https://fb.me/react-0.14.2.js"></script>
     <script src="https://fb.me/react-dom-0.14.2.js"></script>

@@ -73,7 +73,7 @@ module.exports = {
 		renderData = renderData || {};
 
 		var proceed = function (data) {
-			//console.log(data)
+			// console.log(data)
 			// get page layout
 			var childPage = this.getPage(docName, "server");
 
@@ -99,7 +99,7 @@ module.exports = {
 		}.bind(this);
 
 		var ajaxDataCollection = {
-			callsToMake: 4,
+			callsToMake: 5,
 			callsMade: 0,
 			finish() {
 				if(this.callsMade === this.callsToMake) {
@@ -107,7 +107,8 @@ module.exports = {
 						userData: this.userData,
 						channelData: this.channelData,
 						panelData: this.panelData,
-						streamData: this.streamData
+						streamData: this.streamData,
+						videoData: this.videoData
 					});
 				}
 			},
@@ -179,11 +180,29 @@ module.exports = {
 					}
 				})
 			},
+			getVideoData() {
+				var self = this;
+				ajax({
+					connType: "https",
+					url: `api.twitch.tv/kraken/channels/${renderData.streamer}/videos?limit=10`,
+					dataType: "json",
+					success: function(videoData) {
+						//console.log("success", data);
+						self.videoData = JSON.parse(videoData);
+						self.callsMade += 1;
+						self.finish();
+					},
+					error: function(data) {
+						console.log("error", data);
+					}
+				})
+			},
 			callAllOnce() {
 				this.getUserData();
 				this.getChannelData();
 				this.getPanelData();
 				this.getStreamData();
+				this.getVideoData();
 			}
 		};
 
@@ -231,3 +250,6 @@ ReactDOM.render(React.createElement(RenderDocument, null), document.querySelecto
 `;
 	}
 }
+
+// embed videos
+// <iframe src="http://player.twitch.tv/?video=v36999728" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/twitch?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from Twitch on www.twitch.tv</a>
