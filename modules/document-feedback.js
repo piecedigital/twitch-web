@@ -6,16 +6,6 @@ var React = require("react"),
 		http: require("http"),
 		https: require("https")
 	},
-
-	/*path = {
-		join() {
-			var arr = [];
-			for(var i = 0; i < arguments.length; i++) {
-				arr.push(arguments[i]);
-			}
-			return arr.join("/");
-		}
-	},*/
 	path = require("path");
 
 var ajax = function(obj) {

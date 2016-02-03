@@ -118,41 +118,27 @@
         {
         	this.state.panelData.map(function(panel, ind) {
             var link = panel.data.link || "";
-        		if(link) {
-              return (
-                <div key={ind} className="panel | col-3-2-1 x-pad-0_5 y-pad-0_5 no-underline rgb-text-40_40_40">
-                  <a href={panel.data.link} target="_blank" className=" | block height-15_0 rgb-bg-100_200_250 overflow-auto">
-                    {
-                      (panel.data.image) ?
-                        <div className="image | img-contain x-pad-0_5 y-pad-0_5 rgb-bg-60_160_210">
-                          <img src={panel.data.image} />
-                        </div>
-                      : ""
-                    }
-                    <div className="body | image-contain x-pad-0_5 y-pad-0_5">
-                      {panel.data.description}
-                    </div>
-                  </a>
-                </div>
-              )
-            } else {
-              return (
-                <div key={ind} className="panel | col-3-2-1 x-pad-0_5 y-pad-0_5">
-                  <div className=" | height-15_0 rgb-bg-100_200_250 overflow-auto">
-                    {
-                      (panel.data.image) ?
-                        <div className="image | img-contain x-pad-0_5 y-pad-0_5 rgb-bg-60_160_210">
-                          <img src={panel.data.image} />
-                        </div>
-                      : ""
-                    }
-                    <div className="body | image-contain x-pad-0_5 y-pad-0_5">
-                      {panel.data.description}
-                    </div>
+            return (
+              <div key={ind} className="panel | col-3-2-1 x-pad-0_5 y-pad-0_5">
+                <div className=" | height-15_0 rgb-bg-100_200_250 overflow-auto">
+                  {
+                    (panel.data.image) ?
+                      <div className="image | img-contain x-pad-0_5 y-pad-0_5 rgb-bg-60_160_210">
+                        {
+                          (panel.data.link) ?
+                          <a href={panel.data.link} target="_blank">
+                            <img src={panel.data.image} />
+                          </a>
+                          : <img src={panel.data.image} />
+                        }
+                      </div>
+                    : ""
+                  }
+                  <div className="body | image-contain x-pad-0_5 y-pad-0_5" dangerouslySetInnerHTML={{__html : panel.html_description}}>
                   </div>
                 </div>
-              )
-            }
+              </div>
+            )
 		      })
 		    }
       </div>
