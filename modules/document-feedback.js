@@ -6,6 +6,7 @@ var React = require("react"),
 		http: require("http"),
 		https: require("https")
 	},
+	config = require("./config"),
 	path = require("path");
 
 var ajax = function(obj) {
@@ -69,7 +70,7 @@ module.exports = {
 
 			var RenderDocument = React.createClass({
 				render: function render() {
-					return childPage({ props : renderData, state : data });
+					return childPage({ props : data });
 				}
 			});
 			
@@ -79,11 +80,10 @@ module.exports = {
 				streamer: "foo bar"
 			};
 
-			for(var key in renderData) {
-				renderObjectData[key] = renderData[key];
-			}
+			renderObjectData.title = `${data.userData.display_name} | Twitch Web`;
+			renderObjectData.streamer = data.userData.display_name;
 
-			this.renderJS(docName, renderData);
+			this.renderJS(docName, data);
 
 			callback(indexLayout(renderObjectData, { html : true }))
 		}.bind(this);
@@ -210,15 +210,15 @@ module.exports = {
 	},
 	getPage(docName, type) {
 		// gets any jsx page (docName) for "client" or "server" use (type)
-		return jsx[type](read(path.join(__dirname, `../views/${docName}.jsx`), 'utf-8'), {filename:docName,debug:true}, {ecma:"es5"});
+		return jsx[type](read(path.join(__dirname, `../views/${docName}.jsx`), 'utf-8'), {filename:docName,debug:false,ecma:"es5"});
 	},
 
-	reactViewTemplate(objectData, pageData) {
+	reactViewTemplate(renderData, pageData) {
 		return `var RenderDocument = React.createClass({
 	displayName: "RenderDocument",
 
-	getInistialState: function() {
-		return ${JSON.stringify(objectData)};
+	getInitialState: function() {
+		return ${JSON.stringify(renderData)};
 	},
 	render: function render() {
 		return React.createElement( DocumentChild, this.state );
@@ -229,7 +229,10 @@ var DocumentChild = React.createClass({
 	displayName: "RenderDocument",
 
 	sendMessage: function() {
-		window.open("http://www.twitch.tv/message/compose?to=jooygirl", "_blank");
+		window.open("http://www.twitch.tv/message/compose?to=${renderData.userData.display_name}", "_blank");
+	},
+	followChannel: function() {
+		console.log("true stuff");
 	},
 	render: function render() {
 		return (${pageData}(this))
