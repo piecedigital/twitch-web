@@ -231,9 +231,9 @@ var RenderDocument = React.createClass({
 	},
 	followChannel: function() {
 		var self = this;
-		console.log("clicked follow");
-		if(this.loggedIn) {
-			Twitch.api({method: "/users/"+ self.currentUserData.name +"/follows/channels/${renderData.userData.name}", verb: 'PUT' }, function() {
+		console.log("clicked follow", this.state.loggedIn);
+		if(this.state.loggedIn) {
+			Twitch.api({method: "/users/"+ self.state.currentUserData.name +"/follows/channels/${renderData.userData.name}", verb: 'PUT', params: { notifications : true } }, function() {
 			});
 		} else {
 			this.login();
@@ -250,10 +250,16 @@ var RenderDocument = React.createClass({
 		  // the sdk is now loaded
 		  if (status.authenticated) {
 		    // user is currently logged in
-		  	Twitch.api({method: "/channel", verb: 'GET' }, function(data) {
+		  	Twitch.api({method: "/channel", verb: 'GET' }, function(err, data) {
+		  		if(err) {
+		  			console.error(err);
+		  			return;
+		  		};
+
+		  		location.hash = "";
 			    self.setState({
 			    	loggedIn: true,
-			    	currentUserData: JSON.stringify(data)
+			    	currentUserData: data
 			    });
 				});
 		  } else

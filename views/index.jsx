@@ -19,7 +19,7 @@
     <script src="https://fb.me/react-dom-0.14.2.js"></script>
     <script src="/js/main.js"></script>
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>
+    <script src="/js/twitch.min.js"></script>
     <script src="/js/client-react-parent.js"></script>
   </body>
 </html>
