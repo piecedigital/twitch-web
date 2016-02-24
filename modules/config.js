@@ -1,4 +1,4 @@
 module.exports = {
-	twitchClientKey: "piecedigital?t=bopm54ao16as",
+	twitchClientKey: "tgfnn2bzt2f55lm684fajjq2i2v1ld",
 	twitchSecrectKey: "nehemfx7gzlcm7b8tpgrp1enfsurmfb"
 }
