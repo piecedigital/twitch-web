@@ -1,9 +1,11 @@
 <div id="render-document" className="| rgb-text-40_40_40">
-  <div className={ (this.props.state.loggedIn) ? "hidden" : "false" }>
-    <img src="http://ttv-api.s3.amazonaws.com/assets/connect_light.png" className="twitch-connect pointer" href="#" onClick={ this.props.loging } />
-  </div>
-  <div>
-    <span onClick={ this.props.logout }>logout</span>
+  <div id="authentication">
+    <div className={ (this.props.state.loggedIn) ? "hidden" : "false" }>
+      <img src="http://ttv-api.s3.amazonaws.com/assets/connect_light.png" className="twitch-connect pointer" href="#" onClick={ this.props.loging } />
+    </div>
+    <div>
+      <span onClick={ this.props.logout }>logout</span>
+    </div>
   </div>
   <div className="page | page-wrap-1600 pos-relative left-pad-22_0 right-pad-1_0 y-pad-1_0">
 
@@ -72,7 +74,7 @@
             <h1 className=" | unset font-size-2_5">{this.props.state.channelData.status}</h1>
           </div>
           <div className="game">
-            <span className="user | bold">{this.props.state.userData.display_name}</span> playing <a className="game | bold rgb-text-40_40_40 no-underline" href={`http://www.twitch.tv/directory/game/${this.props.state.channelData.game}`}>{this.props.state.channelData.game}</a>
+            <span className="user | bold">{this.props.state.userData.display_name}</span> playing <a className=" | bold rgb-text-40_40_40 no-underline" href={`http://www.twitch.tv/directory/game/${this.props.state.channelData.game}`}>{this.props.state.channelData.game}</a>
           </div>
         </div>
       </div>
@@ -155,10 +157,23 @@
         {
           this.props.state.videoData.videos.map(function(video, ind) {
             return (
-              <div key={ind} className="video | col-3-2-1 x-pad-0_5 y-pad-0_5 no-underline rgb-text-40_40_40">
-                <a href={video._links.self} data-id={video._links._id} target="_blank" className=" | block height-15_0 rgb-bg-100_200_250 overflow-auto" style={{
+              <div data-video-id={video._id} key={ind} className="video | col-3-2-1 x-pad-0_5 y-pad-0_5 no-underline rgb-text-40_40_40">
+                <a href={video.url} target="_blank" className=" | block height-15_0 rgb-bg-100_200_250 overflow-auto" style={{
                   backgroundImage: `url(${video.preview})`
                 }}>
+                  <span className="| block">
+                    <span className="| block">{video.title}</span>
+                    <span className="| block"><a className="underline" href={`http://twitch.tv/${video.channel.name}`}>{video.channel.display_name}</a> | {(function(){
+                      var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+                      var time = new Date(video.recorded_at);
+                      var month = time.getMonth();
+                        date = time.getDate(),
+                        year = time.getFullYear();
+
+                      return `${months[month].substring(0,3)} ${date}, ${year}`;
+                    }())}</span>
+                  </span>
                 </a>
               </div>
             )

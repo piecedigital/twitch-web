@@ -23,6 +23,7 @@
     "browser-sync": "^2.11.0",
     "gulp": "^3.9.0",
     "morgan": "^1.6.1",
-    "node-sass": "^3.4.2"
+    "node-sass": "^3.4.2",
+    "ruby-sass": "0.0.3"
   }
 }

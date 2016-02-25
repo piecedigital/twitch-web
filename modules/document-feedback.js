@@ -174,7 +174,7 @@ module.exports = {
 				var self = this;
 				ajax({
 					connType: "https",
-					url: `api.twitch.tv/kraken/channels/${renderData.streamer}/videos?limit=10`,
+					url: `api.twitch.tv/kraken/channels/${renderData.streamer}/videos?limit=10&broadcasts=true`,
 					dataType: "json",
 					success: function(videoData) {
 						//console.log("success", data);

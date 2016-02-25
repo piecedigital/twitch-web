@@ -5,7 +5,7 @@ var fs = require("fs");
 function renderSass() {
 	sass.render({
 	  file: "./private/sass/style.scss",
-	  outputStyle: "nested",
+	  outputStyle: "compact",
 	  outFile: "./public/css/style.css"
 	}, function(err, result) {
 		if(err) throw err;
