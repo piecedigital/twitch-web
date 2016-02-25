@@ -1,0 +1,159 @@
+.page-wrap-960 {
+	display: block;
+	max-width: 960px;
+	margin: 0 auto;
+}
+.page-wrap-1200 {
+	display: block;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.page-wrap-1600 {
+	display: block;
+	max-width: 1600px;
+	margin: 0 auto;
+}
+.img-contain img{
+	max-width: 100%;
+	max-height: 100%;
+}
+.img-cover img{
+	max-width: 100%;
+	text-align: center;
+}
+.margin-center {
+	margin: 0 auto;
+}
+.left-justify {
+	text-align: left;
+}
+.center-justify {
+	text-align: center;
+}
+.right-justify {
+	text-align: right;
+}
+.align-top {
+	vertical-align: top;
+}
+.align-middle {
+	vertical-align: middle;
+}
+.align-bottom {
+	vertical-align: bottom;
+}
+.bold {
+	font-weight: bold;
+}
+.block {
+	display: block;
+}
+.block-force {
+	display: block !important;
+}
+.inline-block {
+	display: inline-block;
+}
+.inline-block-force {
+	display: inline-block !important;
+}
+.hidden {
+	display: none;
+}
+.hidden-force {
+	display: none !important;
+}
+.invisible {
+	visibility: hidden;
+}
+.invisible-force {
+	visibility: hidden !important;
+}
+.unset {
+	padding: 0;
+	margin: 0;
+}
+.unset-force {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.fillout {
+	width: 100%;
+	height: 100%;
+}
+.full-width {
+	width: 100%;
+}
+.full-height {
+	height: 100%;
+}
+.underline {
+	text-decoration: underline;
+}
+.no-underline {
+	text-decoration: none;
+}
+.no-list-style {
+	list-style: none;
+}
+.border-box {
+	box-sizing: border-box;
+}
+.clear-whitespace {
+	margin-right: -4px;
+}
+.fixed-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.fixed-footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+@for $i from 0 through 10 {
+	.z-index-#{$i} {
+		z-index: ($i);
+	}
+}
+@for $i from 0 through 9 {
+	.opacity-0_#{$i} {
+		opacity: ($i * .1);
+	}
+}
+.opacity-1_0 {
+	opacity: 1;
+}
+.overflow-hidden {
+	overflow: hidden;
+}
+.overflow-x-hidden {
+	overflow: hidden;
+}
+.overflow-y-hidden {
+	overflow: hidden;
+}
+.overflow-auto {
+	overflow: auto;
+}
+.overflow-x-auto {
+	overflow: auto;
+}
+.overflow-y-auto {
+	overflow: auto;
+}
+.overflow-scroll {
+	overflow: scroll;
+}
+.overflow-x-scroll {
+	overflow: scroll;
+}
+.overflow-y-scroll {
+	overflow: scroll;
+}
+.cursor-pointer {
+	cursor: pointer;
+}

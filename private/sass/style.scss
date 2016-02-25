@@ -1,0 +1,42 @@
+//////////////////////// Sass Prerequisites //////////////////////////
+/* font size */
+$em: 16px;
+
+///////////////////// Main Styling /////////////////////////////////
+/*///////////////////////// prerequisites /////////////////////////*/
+/* import styles */
+/* mixins */
+@import "_mixins";
+
+/* defaults */
+@import "_defaults";
+html {
+	font-size: $em;
+}
+.hidden {
+	display: block;
+}
+.pointer {
+	cursor: pointer;
+}
+.separator {
+	height: 1*$em;
+	margin: 1*$em;
+	background-color: rgba(100, 200, 250, 1);
+}
+///////////////////////////////////////////////////////////////////////
+// Main ///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+#render-document {
+	& #authentication {
+		& div {
+		}
+	}
+  & .page {
+  	position: relative;
+  	padding: 1*$em 1*$em 1*$em 22*$em;
+  	max-width: 1600;
+  	@import "_side_panel";
+  	@import "_main_section";
+  }
+}

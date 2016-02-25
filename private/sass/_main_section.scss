@@ -1,0 +1,171 @@
+& .main-section {
+	position: relative;
+	width: 100%;
+	padding: 1*$em;
+	border-radius: 1*$em;
+	background-color: rgba(220, 240, 250, 1);
+  & .header {
+    & .profile-image {
+    	display: inline-block;
+    	width: 5*$em;
+      & .image-container {
+        & > div {
+        	width: 4*$em;
+        	padding: .2*$em;
+        	border-radius: .5*$em;
+        	background-color: rgba(100, 200, 250, 1);
+          img {
+        		max-width: 100%;
+        		max-height: 100%;
+          	display: block;
+          	border-radius: .5*$em;
+          }
+        }
+      }
+    }
+    & .stream-text {
+    	display: inline-block;
+      & .title {
+        & h1 {
+        	padding: 0;
+        	margin: 0;
+        	font-size: 2.5*$em;
+        }
+      }
+      & .game {
+        & .user {
+        	font-weight: bold;
+        	& a {
+        		color: $offBlack;
+        		text-decoration: none;
+        		font-weight: bold;
+        	}
+        }
+      }
+    }
+  }
+  & .stream-section {
+  	position: relative;
+  	max-height: 34*$em;
+  	padding: 0 22*$em 0 0;
+  	margin: 1*$em 0;
+    & .video-embed {
+    	width: 100%;
+      & iframe {
+      	width: 100%;
+      	height: 100%;
+      }
+    }
+    & .chat-embed {
+    	position: absolute;
+    	top: 0*$em;
+    	right: 0*$em;
+    	width: 21*$em;
+      & iframe {
+      	width: 100%;
+      	height: 100%;
+      }
+    }
+  }
+  & .options-belt {
+    & .auth-needed {
+    	display: inline-block;
+    	width: 50%;
+    	text-align: left;
+      & > div {
+      	display: inline-block;
+      	margin: 0 .2*$em;
+      	padding: .3*$em;
+      	border-radius: .3*$em;
+      	background-color: rgba(100, 200, 250, 1);
+      	cursor: pointer;
+        & span {}
+        & .notification-option {
+          cursor: pointer;
+        }
+      }
+    }
+    & .no-auth {
+    	display: inline-block;
+    	width: 50%;
+    	text-align: right;
+      & .wraper {
+      	display: inline-block;
+      	padding: .5*$em;
+      	border-radius: .3*$em;
+      	background-color: rgba(200, 220, 250, 1);
+      	& > div {
+      		display: inline-block;
+      		& .counter {
+      			margin: 0 5*$em;
+      		}
+      		&.viewers {}
+      		&.views {}
+      		&.followers {}
+      	}
+      }
+    }
+  }
+  & .channel-panels {
+    & .title {
+      h1 {
+      	padding: 0;
+      	margin: 0;
+      }
+    }
+    & .panel {
+    	display: inline-block;
+    	width: 33.3333333%;
+    	padding: .5*$em;
+      & > div {
+      	height: 15*$em;
+      	background-color: rgba(100, 200, 250, 1);
+      	overflow: auto;
+        & .image {
+        	max-width: 100%;
+        	max-height: 100%;
+        	padding: .5*$em;
+        	background-color: rgba(60, 160, 210, 1);
+        }
+        & .body {
+        	max-width: 100%;
+        	max-height: 100%;
+        	padding: .5*$em;
+        }
+      }
+    }
+  }
+  & .channel-past-broadcasts {
+    & .title {
+      & h1 {
+      	padding: 0;
+      	margin: 0;
+      }
+    }
+    & .video {
+    	display: inline-block;
+    	width: 33.3333333%;
+    	padding: .5*$em;
+    	text-decoration: none;
+    	color: $offBlack;
+      & a {
+      	display: block;
+      	height: 15*$em;
+      	background-color: rgba(100, 200, 250, 1);
+      	overflow: auto;
+        & span {
+        	display: inline-block;
+          & span {
+          	display: block;
+          }
+          & span {
+          	display: block;
+          	& a {
+          		text-decoration: underline;
+          	}
+          }
+        }
+      }
+    }
+  }
+}
