@@ -239,6 +239,12 @@ var RenderDocument = React.createClass({
 			this.login();
 		}
 	},
+	toggleTheater: function() {
+		$(".stream-section").toggleClass("theater");
+	},
+	toggleChat: function() {
+		$(".stream-section").toggleClass("hide-chat");
+	},
 	componentDidMount: function() {
 		var self = this;
 

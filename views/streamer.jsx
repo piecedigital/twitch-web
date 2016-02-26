@@ -79,6 +79,7 @@
         </div>
       </div>
       <div className="stream-section | pos-relative max-height-34_0 right-pad-22_0 y-marg-1_0">
+        
         <div className="video-embed | full-width">
           <iframe className=" | fillout" src={`http://player.twitch.tv/?channel=${this.props.state.userData.name}`} frameBorder="0"></iframe>
         </div>
@@ -96,11 +97,11 @@
           <div className="share | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer">
             <span>Share</span>
           </div>
-          <div className="theater | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer">
-            <span>Theater</span>
+          <div className="theater | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer" onClick={ this.props.toggleChat }>
+            <span>Toggle Chat</span>
           </div>
-          <div className="settings | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer">
-            <span>Settings</span>
+          <div className="theater | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer" onClick={ this.props.toggleTheater }>
+            <span>Toggle Theater</span>
           </div>
         </div>
         <div className="no-auth | col-2-1 right-justify">
@@ -161,20 +162,20 @@
                 <a href={video.url} target="_blank" className=" | block height-15_0 rgb-bg-100_200_250 overflow-auto" style={{
                   backgroundImage: `url(${video.preview})`
                 }}>
-                  <span className="| block">
-                    <span className="| block">{video.title}</span>
-                    <span className="| block"><a className="underline" href={`http://twitch.tv/${video.channel.name}`}>{video.channel.display_name}</a> | {(function(){
-                      var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-                      var time = new Date(video.recorded_at);
-                      var month = time.getMonth();
-                        date = time.getDate(),
-                        year = time.getFullYear();
-
-                      return `${months[month].substring(0,3)} ${date}, ${year}`;
-                    }())}</span>
-                  </span>
                 </a>
+                <span className="video-info | block">
+                  <span className="| inline-block">{video.title}</span>
+                  <span className="| inline-block"><a className="underline" href={`http://twitch.tv/${video.channel.name}`} target="_blank">{video.channel.display_name}</a>{(function(){
+                    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+                    var time = new Date(video.recorded_at);
+                    var month = time.getMonth();
+                      date = time.getDate(),
+                      year = time.getFullYear();
+
+                    return `| ${months[month].substring(0,3)} ${date}, ${year}`;
+                  }())}</span>
+                </span>
               </div>
             )
           })

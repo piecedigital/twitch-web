@@ -3,7 +3,7 @@
 /* import styles */
 /* mixins */
 /* defaults */
-*, *:before, *:after { box-sizing: border-box; font-family: sans-serif; transition: 0.5s all; -webkit-transition: 0.5s all; -moz-transition: 0.5s all; }
+*, *:before, *:after { box-sizing: border-box; font-family: sans-serif; transition: 0.5s all; -webkit-transition: 0.5s all; -moz-transition: 0.5s all; vertical-align: top; }
 
 html { font-size: 16px; }
 
@@ -11,7 +11,7 @@ html { font-size: 16px; }
 
 .pointer { cursor: pointer; }
 
-.separator { height: 16px; margin: 16px; background-color: #64c8fa; }
+.separator { height: 1.6px; margin: 16px; background-color: #64c8fa; }
 
 #render-document .page { position: relative; padding: 16px 16px 16px 352px; max-width: 1600; }
 
@@ -77,9 +77,21 @@ html { font-size: 16px; }
 
 #render-document .page .main-section .stream-section .chat-embed iframe { width: 100%; height: 100%; }
 
+#render-document .page .main-section .stream-section.theater { position: fixed; top: 0; left: 0; width: 100%; height: 100%; max-height: 100%; padding-top: 32px; margin: 0; background-color: #9be0ff; }
+
+#render-document .page .main-section .stream-section.theater .chat-embed { width: 352px; height: 100%; }
+
+#render-document .page .main-section .stream-section.theater + .options-belt .auth-needed { position: fixed; top: 0; left: 0; }
+
+#render-document .page .main-section .stream-section.hide-chat { padding-right: 0; }
+
+#render-document .page .main-section .stream-section.hide-chat .chat-embed { width: 0; }
+
 #render-document .page .main-section .options-belt .auth-needed { display: inline-block; width: 50%; text-align: left; }
 
 #render-document .page .main-section .options-belt .auth-needed > div { display: inline-block; margin: 0 3.2px; padding: 4.8px; border-radius: 4.8px; background-color: #64c8fa; cursor: pointer; }
+
+#render-document .page .main-section .options-belt .auth-needed > div:hover { background-color: #00a2eb; color: #e8f8ff; }
 
 #render-document .page .main-section .options-belt .auth-needed > div .notification-option { cursor: pointer; }
 
@@ -89,7 +101,7 @@ html { font-size: 16px; }
 
 #render-document .page .main-section .options-belt .no-auth .wraper > div { display: inline-block; }
 
-#render-document .page .main-section .options-belt .no-auth .wraper > div .counter { margin: 0 80px; }
+#render-document .page .main-section .options-belt .no-auth .wraper > div .counter { margin: 0 8px; }
 
 #render-document .page .main-section .channel-panels .title h1 { padding: 0; margin: 0; }
 
@@ -97,7 +109,9 @@ html { font-size: 16px; }
 
 #render-document .page .main-section .channel-panels .panel > div { height: 240px; background-color: #64c8fa; overflow: auto; }
 
-#render-document .page .main-section .channel-panels .panel > div .image { max-width: 100%; max-height: 100%; padding: 8px; background-color: #3ca0d2; }
+#render-document .page .main-section .channel-panels .panel > div .image { padding: 8px; background-color: #3ca0d2; }
+
+#render-document .page .main-section .channel-panels .panel > div .image img { max-width: 100%; max-height: 100%; }
 
 #render-document .page .main-section .channel-panels .panel > div .body { max-width: 100%; max-height: 100%; padding: 8px; }
 
@@ -105,12 +119,10 @@ html { font-size: 16px; }
 
 #render-document .page .main-section .channel-past-broadcasts .video { display: inline-block; width: 33.3333333%; padding: 8px; text-decoration: none; color: #19191f; }
 
-#render-document .page .main-section .channel-past-broadcasts .video a { display: block; height: 240px; background-color: #64c8fa; overflow: auto; }
+#render-document .page .main-section .channel-past-broadcasts .video > a { display: block; height: 240px; background-color: #64c8fa; overflow: auto; }
 
-#render-document .page .main-section .channel-past-broadcasts .video a span { display: inline-block; }
+#render-document .page .main-section .channel-past-broadcasts .video .video-info { display: block; }
 
-#render-document .page .main-section .channel-past-broadcasts .video a span span { display: block; }
+#render-document .page .main-section .channel-past-broadcasts .video .video-info span { display: inline-block; }
 
-#render-document .page .main-section .channel-past-broadcasts .video a span span { display: block; }
-
-#render-document .page .main-section .channel-past-broadcasts .video a span span a { text-decoration: underline; }
+#render-document .page .main-section .channel-past-broadcasts .video .video-info span a { margin: 0 6.4px 0 0; text-decoration: underline; }

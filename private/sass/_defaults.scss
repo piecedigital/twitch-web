@@ -17,4 +17,5 @@ $em: 16px;
   box-sizing: border-box;
   font-family: sans-serif;
   @include transition(.5s all);
+  vertical-align: top;
 }
