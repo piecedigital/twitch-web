@@ -245,6 +245,15 @@ var RenderDocument = React.createClass({
 	toggleChat: function() {
 		$(".stream-section").toggleClass("hide-chat");
 	},
+	loadStream: function(e) {
+		$(".video-embed iframe").attr("src", "http://player.twitch.tv/?channel=" + this.state.userData.name);
+	},
+	loadRecording: function(e) {
+		var videoId = e.target.attributes["data-video-id"].value,
+			url = "http://player.twitch.tv/?video=" + videoId;
+
+		$(".video-embed iframe").attr("src", url);
+	},
 	componentDidMount: function() {
 		var self = this;
 

@@ -81,7 +81,7 @@
       <div className="stream-section | pos-relative max-height-34_0 right-pad-22_0 y-marg-1_0">
         
         <div className="video-embed | full-width">
-          <iframe className=" | fillout" src={`http://player.twitch.tv/?channel=${this.props.state.userData.name}`} frameBorder="0"></iframe>
+          <iframe className=" | fillout" src={`http://player.twitch.tv/?channel=${this.props.state.userData.name}`} frameBorder="0" scrollable=false></iframe>
         </div>
         <div className="chat-embed | pos-absolute pos-top-0_0 pos-right-0_0 width-21_0">
           <iframe className=" | fillout" src={`http://twitch.tv/${this.props.state.userData.name}/chat`} frameBorder="0"></iframe>
@@ -156,12 +156,13 @@
           <h1 className=" | unset">Past Broadcasts</h1>
         </div>
         {
+          var self = this;
           this.props.state.videoData.videos.map(function(video, ind) {
             return (
-              <div data-video-id={video._id} key={ind} className="video | col-3-2-1 x-pad-0_5 y-pad-0_5 no-underline rgb-text-40_40_40">
-                <a href={video.url} target="_blank" className=" | block height-15_0 rgb-bg-100_200_250 overflow-auto" style={{
+              <div key={ind} className="video | col-3-2-1 x-pad-0_5 y-pad-0_5 no-underline rgb-text-40_40_40">
+                <a href={video.url} target="_blank" data-video-id={video._id} className=" | block height-15_0 rgb-bg-100_200_250 overflow-auto" style={{
                   backgroundImage: `url(${video.preview})`
-                }}>
+                }} onClick={ self.props.loadRecording }>
                 </a>
                 <span className="video-info | block">
                   <span className="| inline-block">{video.title}</span>
