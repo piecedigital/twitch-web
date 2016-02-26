@@ -14,7 +14,10 @@ html {
 	font-size: $em;
 }
 .hidden {
-	display: block;
+	display: none;
+}
+.hidden-force {
+	display: none !important;
 }
 .pointer {
 	cursor: pointer;

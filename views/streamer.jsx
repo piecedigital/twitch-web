@@ -81,7 +81,7 @@
       <div className="stream-section | pos-relative max-height-34_0 right-pad-22_0 y-marg-1_0">
         
         <div className="video-embed | full-width">
-          <iframe className=" | fillout" src={`http://player.twitch.tv/?channel=${this.props.state.userData.name}`} frameBorder="0" scrollable=false></iframe>
+          <iframe className=" | fillout" src={`http://player.twitch.tv/?channel=${this.props.state.userData.name}`} frameBorder="0" scrolling="false"></iframe>
         </div>
         <div className="chat-embed | pos-absolute pos-top-0_0 pos-right-0_0 width-21_0">
           <iframe className=" | fillout" src={`http://twitch.tv/${this.props.state.userData.name}/chat`} frameBorder="0"></iframe>
@@ -97,11 +97,14 @@
           <div className="share | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer">
             <span>Share</span>
           </div>
-          <div className="theater | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer" onClick={ this.props.toggleChat }>
+          <div className="chat | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer" onClick={ this.props.toggleChat }>
             <span>Toggle Chat</span>
           </div>
           <div className="theater | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer" onClick={ this.props.toggleTheater }>
             <span>Toggle Theater</span>
+          </div>
+          <div className="stream | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer hidden-force" onClick={ this.props.loadStream }>
+            <span>Open Stream</span>
           </div>
         </div>
         <div className="no-auth | col-2-1 right-justify">
@@ -156,13 +159,12 @@
           <h1 className=" | unset">Past Broadcasts</h1>
         </div>
         {
-          var self = this;
           this.props.state.videoData.videos.map(function(video, ind) {
             return (
               <div key={ind} className="video | col-3-2-1 x-pad-0_5 y-pad-0_5 no-underline rgb-text-40_40_40">
                 <a href={video.url} target="_blank" data-video-id={video._id} className=" | block height-15_0 rgb-bg-100_200_250 overflow-auto" style={{
                   backgroundImage: `url(${video.preview})`
-                }} onClick={ self.props.loadRecording }>
+                }} onClick={ this.props.loadRecording }>
                 </a>
                 <span className="video-info | block">
                   <span className="| inline-block">{video.title}</span>
@@ -179,7 +181,7 @@
                 </span>
               </div>
             )
-          })
+          }.bind(this))
         }
       </div>
     </div>

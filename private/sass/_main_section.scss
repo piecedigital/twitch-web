@@ -111,7 +111,9 @@
           background-color: $midBlue;
           color: $veryLightBlue;
         }
-        & span {}
+        & span {
+          pointer-events: none;
+        }
         & .notification-option {
           cursor: pointer;
         }

@@ -7,7 +7,9 @@
 
 html { font-size: 16px; }
 
-.hidden { display: block; }
+.hidden { display: none; }
+
+.hidden-force { display: none !important; }
 
 .pointer { cursor: pointer; }
 
@@ -92,6 +94,8 @@ html { font-size: 16px; }
 #render-document .page .main-section .options-belt .auth-needed > div { display: inline-block; margin: 0 3.2px; padding: 4.8px; border-radius: 4.8px; background-color: #64c8fa; cursor: pointer; }
 
 #render-document .page .main-section .options-belt .auth-needed > div:hover { background-color: #00a2eb; color: #e8f8ff; }
+
+#render-document .page .main-section .options-belt .auth-needed > div span { pointer-events: none; }
 
 #render-document .page .main-section .options-belt .auth-needed > div .notification-option { cursor: pointer; }
 

@@ -246,13 +246,16 @@ var RenderDocument = React.createClass({
 		$(".stream-section").toggleClass("hide-chat");
 	},
 	loadStream: function(e) {
+		$(e.target).addClass("hidden-force");
 		$(".video-embed iframe").attr("src", "http://player.twitch.tv/?channel=" + this.state.userData.name);
 	},
 	loadRecording: function(e) {
+		e.preventDefault();
 		var videoId = e.target.attributes["data-video-id"].value,
 			url = "http://player.twitch.tv/?video=" + videoId;
 
 		$(".video-embed iframe").attr("src", url);
+		$(".options-belt .auth-needed .stream").removeClass("hidden-force");
 	},
 	componentDidMount: function() {
 		var self = this;
