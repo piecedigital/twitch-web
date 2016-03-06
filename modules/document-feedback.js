@@ -298,6 +298,10 @@ var DocumentChild = React.createClass({
 	sendMessage: function() {
 		window.open("http://www.twitch.tv/message/compose?to=${renderData.userData.display_name}", "_blank");
 	},
+	select: function(e) {
+		console.log("stuffffff")
+		e.target.select();
+	},
 	render: function render() {
 		return (${pageData}(this))
 	}

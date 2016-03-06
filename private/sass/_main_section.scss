@@ -35,12 +35,15 @@
       & .game {
         & .user {
         	font-weight: bold;
-        	& a {
-        		color: $offBlack;
-        		text-decoration: none;
-        		font-weight: bold;
-        	}
         }
+      	& a {
+      		color: $offBlack;
+      		text-decoration: none;
+      		font-weight: bold;
+          &:hover {
+            text-decoration: underline;
+          }
+      	}
       }
     }
   }
@@ -100,19 +103,61 @@
     	display: inline-block;
     	width: 50%;
     	text-align: left;
-      & > div {
-      	display: inline-block;
+      & > div, > label {
+        display: inline-block;
+        position: relative;
       	margin: 0 .2*$em;
       	padding: .3*$em;
       	border-radius: .3*$em;
       	background-color: rgba(100, 200, 250, 1);
+        *, *:after {
+          color: black;
+        }
       	cursor: pointer;
         &:hover {
           background-color: $midBlue;
-          color: $veryLightBlue;
+          *, *:after {
+            color: $veryLightBlue;
+          }
         }
         & span {
           pointer-events: none;
+        }
+        &.share {
+          & span {
+            &:after {
+              content: "\2195";
+              display: inline-block;
+              margin: 0 0 0 .4*$em;
+            }
+          }
+          & .share-box {
+            z-index: 1;
+            display: none;
+            position: absolute;
+            top: -.5*$em;
+            left: 100%;
+            @include transformT(-50%, -100%);
+            padding: 1*$em;
+            border-radius: .5*$em;
+            box-shadow: inset 0 0 0 .2*$em $lightBlue;
+            background-color: $veryLightBlue;
+            color: black;
+            pointer-events: none;
+            & * {
+              pointer-events: all;
+              color: black;
+            }
+            & input {
+              width: 20*$em;
+            }
+          }
+          & #share-input {
+            display: none;
+            &:checked ~ .share-box {
+              display: block;
+            }
+          }
         }
         & .notification-option {
           cursor: pointer;

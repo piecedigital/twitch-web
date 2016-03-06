@@ -94,9 +94,24 @@
             <div className="notification-option | cursor-pointer">
             </div>
           </div>
-          <div className="share | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer">
+          <label htmlFor="share-input" className="share | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer">
             <span>Share</span>
-          </div>
+            <input id="share-input" type="checkbox" />
+            <div className="share-box">
+              <div>
+                <label>Channel Link</label>
+                <input type="text" readOnly="true" value={ `http://www.twitch.tv/${this.props.state.userData.name}` } onClick={ this.select } />
+              </div>
+              <div>
+                <label>Channel Link</label>
+                <input type="text" readOnly="true" value={ `<iframe src="http://player.twitch.tv/?channel=${this.props.state.userData.name}" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/${this.props.state.userData.name}?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from ${this.props.state.userData.name} on www.twitch.tv</a>` } onClick={ this.select } />
+              </div>
+              <div>
+                <label>Channel Link</label>
+                <input type="text" readOnly="true" value={ `<iframe src="http://www.twitch.tv/${this.props.state.userData.name}/chat?popout=" frameborder="0" scrolling="no" height="500" width="350"></iframe>` } onClick={ this.select } />
+              </div>
+            </div>
+          </label>
           <div className="chat | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer" onClick={ this.props.toggleChat }>
             <span>Toggle Chat</span>
           </div>
@@ -172,7 +187,7 @@
                     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
                     var time = new Date(video.recorded_at);
-                    var month = time.getMonth();
+                    var month = time.getMonth(),
                       date = time.getDate(),
                       year = time.getFullYear();
 
