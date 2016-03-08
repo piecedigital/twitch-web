@@ -1,57 +1,64 @@
-<div id="render-document" className="| rgb-text-40_40_40">
-  <div id="authentication">
-    <div className={ (this.props.state.loggedIn) ? "hidden" : "false" }>
-      <img src="http://ttv-api.s3.amazonaws.com/assets/connect_light.png" className="twitch-connect pointer" href="#" onClick={ this.props.loging } />
+<div id="render-document" className="">
+  <div className="top-bar">
+    <div className="options">
+      <div className="btn-default toggle-side-panel" onClick={this.props.toggleSidePanel}>
+        Side Panel
+      </div>
     </div>
-    <div>
-      <span onClick={ this.props.logout }>logout</span>
+    <div className="authentication">
+      <div className={ "login " + ( (this.props.state.loggedIn) ? 'hidden' : 'false' ) }>
+        <img src="http://ttv-api.s3.amazonaws.com/assets/connect_light.png" className="twitch-connect pointer" href="#" onClick={ this.props.login } />
+      </div>
+      <div className={ "logout " + ( (!this.props.state.loggedIn) ? 'hidden' : 'false' ) }>
+        <span className="btn-default" onClick={ this.props.logout }>logout</span>
+      </div>
     </div>
   </div>
-  <div className="page | page-wrap-1600 pos-relative left-pad-22_0 right-pad-1_0 y-pad-1_0">
+  <div className="page">
 
-  	<div className="side-panel | pos-absolute pos-top-1_0 pos-left-1_0 width-20_0 x-pad-1_0 y-pad-1_0 border-radius-1_0 rgb-bg-220_240_250">
-      <div className="profile-image | img-contain x-pad-1_0 parent">
-        <div className=" | x-pad-0_5 y-pad-0_5 border-radius-0_8 rgb-bg-100_200_250">
-          <img className=" | display-block border-radius-0_5" src={this.props.state.userData.logo} />
-          <div className="channel-status | center-justify col-2">
-            <h3 className="unset top-marg-0_5 rgb-text-240_250_250">Offline</h3>
+  	<div className="side-panel">
+      <div className="profile-image">
+        <div className="">
+          <img className="" src={this.props.state.userData.logo} />
+          <div className="channel-status">
+            <h3 className="">Offline</h3>
           </div>
-          <div className="channel-options | col-2">
+          <div className="channel-options">
             <div className="message">
-              <a className=" | rgb-text-240_250_250 no-underline bold" href={`http://www.twitch.tv/message/compose?to=${this.props.state.userData.name}`} target="_blank">Message</a>
+              <a className="" href={`http://www.twitch.tv/message/compose?to=${this.props.state.userData.name}`} target="_blank">Message</a>
             </div>
           </div>
         </div>
       </div>
-      <div className="channel-name | center-justify">
-        <h3 className="top-marg-1_0">{this.props.state.userData.display_name}</h3>
+      <div className="channel-name">
+        <h3 className="">{this.props.state.userData.display_name}</h3>
       </div>
-      <div className="separator | height-0_1 y-marg-1_0 rgb-bg-100_200_250"></div>
-      <div className="channel-bio | x-pad-0_5">
-        <p className=" | unset">{this.props.state.userData.bio}</p>
+      <div className="separator"></div>
+      <div className="channel-bio">
+        <p className="">{this.props.state.userData.bio}</p>
       </div>
-      <div className="separator | height-0_1 y-marg-1_0 rgb-bg-100_200_250"></div>
-      <div className="social-media | x-pad-0_5 y-pad-0_5">
-        <div className="title | center-justify">
-          <h4 className=" | unset">Social Media</h4>
+      <div className="separator"></div>
+      <div className="social-media">
+        <div className="title">
+          <h4 className="">Social Media</h4>
         </div>
-        <div className="icons | x-pad-0_5 y-pad-0_5">
-          <div className="icon | col-4 x-pad-0_5 y-pad-0_5 img-contain">
+        <div className="icons">
+          <div className="icon">
             <a href="http://twitter.com/piecedigital">
               <img src="/assets/twitter.png" />
             </a>
           </div>
-          <div className="icon | col-4 x-pad-0_5 y-pad-0_5 img-contain">
+          <div className="icon">
             <a href="http://facebook.com/piecedigitalstudios">
               <img src="/assets/facebook.png" />
             </a>
           </div>
-          <div className="icon | col-4 x-pad-0_5 y-pad-0_5 img-contain">
+          <div className="icon">
             <a href="http://instagram.com/piecedigitalstudios">
               <img src="/assets/instagram.png" />
             </a>
           </div>
-          <div className="icon | col-4 x-pad-0_5 y-pad-0_5 img-contain">
+          <div className="icon">
             <a href="http://tumblr.com/piecedigitalstudios">
               <img src="/assets/tumblr.png" />
             </a>
@@ -60,41 +67,41 @@
       </div>
     </div>
 
-    <div className="main-section | pos-relative full-width x-pad-1_0 y-pad-1_0 border-radius-1_0 rgb-bg-220_240_250">
-      <div className="header |">
-        <div className="profile-image | inline-block width-5_0">
+    <div className="main-section">
+      <div className="header">
+        <div className="profile-image">
           <div className="image-container">
-            <div className=" | width-4_0 x-pad-0_2 y-pad-0_2 border-radius-0_5 rgb-bg-100_200_250 img-contain">
-              <img className=" | display-block border-radius-0_5" src={this.props.state.userData.logo} />
+            <div className="">
+              <img className="" src={this.props.state.userData.logo} />
             </div>
           </div>
         </div>
-        <div className="stream-text | inline-block">
+        <div className="stream-text">
           <div className="title">
-            <h1 className=" | unset font-size-2_5">{this.props.state.channelData.status}</h1>
+            <h1 className="">{this.props.state.channelData.status}</h1>
           </div>
           <div className="game">
-            <span className="user | bold">{this.props.state.userData.display_name}</span> playing <a className=" | bold rgb-text-40_40_40 no-underline" href={`http://www.twitch.tv/directory/game/${this.props.state.channelData.game}`}>{this.props.state.channelData.game}</a>
+            <span className="user">{this.props.state.userData.display_name}</span> playing <a className=" | bold rgb-text-40_40_40 no-underline" href={`http://www.twitch.tv/directory/game/${this.props.state.channelData.game}`}>{this.props.state.channelData.game}</a>
           </div>
         </div>
       </div>
-      <div className="stream-section | pos-relative max-height-34_0 right-pad-22_0 y-marg-1_0">
-        
-        <div className="video-embed | full-width">
-          <iframe className=" | fillout" src={`http://player.twitch.tv/?channel=${this.props.state.userData.name}`} frameBorder="0" scrolling="false"></iframe>
+      <div className="stream-section">
+
+        <div className="video-embed">
+          <iframe className="" src={`http://player.twitch.tv/?channel=${this.props.state.userData.name}`} frameBorder="0" scrolling="false"></iframe>
         </div>
-        <div className="chat-embed | pos-absolute pos-top-0_0 pos-right-0_0 width-21_0">
-          <iframe className=" | fillout" src={`http://twitch.tv/${this.props.state.userData.name}/chat`} frameBorder="0"></iframe>
+        <div className="chat-embed">
+          <iframe className="" src={`http://twitch.tv/${this.props.state.userData.name}/chat`} frameBorder="0"></iframe>
         </div>
       </div>
-      <div className="options-belt |">
-        <div className="auth-needed | col-2-1 left-justify">
-          <div className="follow | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer">
+      <div className="options-belt">
+        <div className="auth-needed">
+          <div className="follow btn-default">
             <span onClick={this.props.followChannel}>Follow</span>
-            <div className="notification-option | cursor-pointer">
+            <div className="notification-option">
             </div>
           </div>
-          <label htmlFor="share-input" className="share | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer">
+          <label htmlFor="share-input" className="share btn-default">
             <span>Share</span>
             <input id="share-input" type="checkbox" />
             <div className="share-box">
@@ -112,34 +119,34 @@
               </div>
             </div>
           </label>
-          <div className="chat | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer" onClick={ this.props.toggleChat }>
+          <div className="chat btn-default" onClick={ this.props.toggleChat }>
             <span>Toggle Chat</span>
           </div>
-          <div className="theater | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer" onClick={ this.props.toggleTheater }>
+          <div className="theater btn-default" onClick={ this.props.toggleTheater }>
             <span>Toggle Theater</span>
           </div>
-          <div className="stream | inline-block x-marg-0_2 x-pad-0_3 y-pad-0_3 border-radius-0_3 rgb-bg-100_200_250 cursor-pointer hidden-force" onClick={ this.props.loadStream }>
+          <div className="stream btn-default hidden-force" onClick={ this.props.loadStream }>
             <span>Open Stream</span>
           </div>
         </div>
-        <div className="no-auth | col-2-1 right-justify">
-          <div className="wraper | inline-block x-pad-0_5 y-pad-0_5 border-radius-0_3 rgb-bg-200_220_250">
-            <div className="viewers | inline-block">
-              <span className="counter | x-marg-0_5{(!this.props.state.streamData.stream) ? ' hidden' : ''}">{(this.props.state.streamData.stream) ? this.props.state.streamData.stream.viewers : 0}</span> <span>viewers</span>
+        <div className="no-auth">
+          <div className="wraper">
+            <div className="viewers">
+              <span className="counter {(!this.props.state.streamData.stream) ? ' hidden' : ''}">{(this.props.state.streamData.stream) ? this.props.state.streamData.stream.viewers : 0}</span> <span>viewers</span>
             </div>
-            <div className="views | inline-block">
-              <span className="counter | x-marg-0_5">{this.props.state.channelData.views}</span> <span>views</span>
+            <div className="views">
+              <span className="counter">{this.props.state.channelData.views}</span> <span>views</span>
             </div>
-            <div className="followers | inline-block">
-              <span className="counter | x-marg-0_5">{this.props.state.channelData.followers}</span> <span>followers</span>
+            <div className="followers">
+              <span className="counter">{this.props.state.channelData.followers}</span> <span>followers</span>
             </div>
           </div>
         </div>
       </div>
-      <div className="separator | height-0_1 y-marg-1_0 rgb-bg-100_200_250"></div>
-      <div className="channel-panels |">
+      <div className="separator"></div>
+      <div className="channel-panels">
         <div className="title">
-          <h1 className=" | unset">Panels</h1>
+          <h1 className="">Panels</h1>
         </div>
         {
         	this.props.state.panelData.map(function(panel, ind) {

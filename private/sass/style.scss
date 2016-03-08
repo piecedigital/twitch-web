@@ -27,19 +27,48 @@ html {
 	margin: 1*$em;
 	background-color: rgba(100, 200, 250, 1);
 }
+.unset {
+	margin: 0;
+	padding: 0;
+}
+.btn-default {
+	display: inline-block;
+	position: relative;
+	margin: 0 .2*$em;
+	padding: .3*$em;
+	border-radius: .3*$em;
+	background-color: rgba(100, 200, 250, 1);
+	cursor: pointer;
+	&:hover {
+		background-color: $midBlue;
+		color: $veryLightBlue;
+		*, *:after {
+			color: $veryLightBlue;
+		}
+	}
+}
 ///////////////////////////////////////////////////////////////////////
 // Main ///////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 #render-document {
-	& #authentication {
-		& div {
-		}
-	}
+	@import "_top_bar";
   & .page {
   	position: relative;
-  	padding: 1*$em 1*$em 1*$em 22*$em;
+  	padding: 4*$em 1*$em 1*$em 22*$em;
   	max-width: 1600;
   	@import "_side_panel";
   	@import "_main_section";
   }
+}
+
+@include media-max("1000px") {
+	#render-document {
+		& #authentication {
+			& div {
+			}
+		}
+	  & .page {
+	  	padding: 1*$em 1*$em 1*$em 1*$em;
+	  }
+	}
 }

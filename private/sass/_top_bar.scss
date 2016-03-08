@@ -1,0 +1,29 @@
+.top-bar {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: .5*$em;
+  background-color: $lightBlue;
+  & .options, .authentication {
+    display: inline-block;
+    width: 50%;
+  }
+  & .options {
+    text-align: left;
+    & .toggle-side-panel {
+    }
+  }
+  & .authentication {
+    text-align: right;
+    & .login, .logout {
+      display: inline-block;
+      &.hidden {
+        display: none;
+      }
+    }
+    & .logout {
+    }
+  }
+}
