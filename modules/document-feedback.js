@@ -8,13 +8,13 @@ var React = require("react"),
 	},
 	path = require("path"),
 	CSGenerator = require("./client-script-generator");
-
+console.log(process.env)
 try {
 	config = require("./config");
 } catch (e) {
 	if (e instanceof Error && e.code === "MODULE_NOT_FOUND") {
 		if(!process.env["twitchClientKey"] || !process.env["twitchSecrectKey"]) {
-			throw new Error("twitchClientKey or twitchSecrectKey don't exist");
+			throw console.error(new Error("twitchClientKey or twitchSecrectKey don't exist"));
 		};
 
 		config = {
