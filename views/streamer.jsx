@@ -97,7 +97,7 @@
           <iframe className="" src={`https://player.twitch.tv/?channel=${this.props.state.userData.name}`} frameBorder="0" scrolling="false"></iframe>
         </div>
         <div className="chat-embed">
-          <iframe className="" src={`https://twitch.tv/${this.props.state.userData.name}/chat`} frameBorder="0"></iframe>
+          <iframe className="" src={`//twitch.tv/${this.props.state.userData.name}/chat`} frameBorder="0"></iframe>
         </div>
       </div>
       <div className="options-belt">
