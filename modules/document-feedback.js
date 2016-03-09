@@ -10,16 +10,16 @@ var React = require("react"),
 	CSGenerator = require("./client-script-generator");
 console.log(process.env)
 try {
-	config = require("./config");
+	var config = require("./config");
 } catch (e) {
 	if (e instanceof Error && e.code === "MODULE_NOT_FOUND") {
-		if(!process.env["twitchClientKey"] || !process.env["twitchSecrectKey"]) {
-			throw console.error(new Error("twitchClientKey or twitchSecrectKey don't exist"));
+		if(!process.env["TWITCH_CLIENT_KEY"] || !process.env["TWITCH_SECRET_KEY"]) {
+			throw console.error(new Error("TWITCH_CLIENT_KEY or TWITCH_SECRET_KEY don't exist"));
 		};
 
-		config = {
-			twitchClientKey: process.env["twitchClientKey"],
-			twitchSecrectKey: process.env["twitchSecrectKey"]
+		var config = {
+			twitchClientKey: process.env["TWITCH_CLIENT_KEY"],
+			twitchSecrectKey: process.env["TWITCH_SECRET_KEY"]
 		};
 	} else {
 		throw e;
