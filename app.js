@@ -5,7 +5,7 @@ var express = require("express"),
 	path = require("path");
 process.env["NODE_ENV"] = process.env["NODE_ENV"] || "dev";
 console.log(process.env["NODE_ENV"])
-if(process.env["NODE_ENV"] !== "dev") {
+if(process.env["NODE_ENV"] === "dev") {
 	morgan = require("morgan");
 	app.use(morgan("dev"));
 };
