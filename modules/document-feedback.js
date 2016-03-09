@@ -6,9 +6,25 @@ var React = require("react"),
 		http: require("http"),
 		https: require("https")
 	},
-	config = require("./config"),
 	path = require("path"),
 	CSGenerator = require("./client-script-generator");
+
+try {
+	config = require("./config");
+} catch (e) {
+	if (e instanceof Error && e.code === "MODULE_NOT_FOUND") {
+		if(!process.env["twitchClientKey"] || !process.env["twitchSecrectKey"]) {
+			throw new Error("twitchClientKey or twitchSecrectKey don't exist");
+		};
+
+		config = {
+			twitchClientKey: process.env["twitchClientKey"],
+			twitchSecrectKey: process.env["twitchSecrectKey"]
+		};
+	} else {
+		throw e;
+	};
+};
 
 var ajax = function(obj) {
 	var hostname = obj.url.match(/(www)?([\w\d\-\_]*\.)?([\w\d\-\_]*[\.\:]{1,})([\w\d\-\_]*)(\.[\w\d\-\_]*)?/gi).join(""),
