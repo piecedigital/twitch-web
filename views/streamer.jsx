@@ -10,7 +10,7 @@
     </div>
     <div className="authentication">
       <div className={ "login " + ( (this.props.state.loggedIn) ? 'hidden' : 'false' ) }>
-        <img src="http://ttv-api.s3.amazonaws.com/assets/connect_light.png" className="twitch-connect pointer" href="#" onClick={ this.props.login } />
+        <img src="https://ttv-api.s3.amazonaws.com/assets/connect_light.png" className="twitch-connect pointer" href="#" onClick={ this.props.login } />
       </div>
       <div className={ "logout " + ( (!this.props.state.loggedIn) ? 'hidden' : 'false' ) }>
         <span className="btn-default" onClick={ this.props.logout }>logout</span>
@@ -30,7 +30,7 @@
             <span>|</span>
             <div className="channel-options">
               <div className="message">
-                <a className="" href={`http://www.twitch.tv/message/compose?to=${this.props.state.userData.name}`} target="_blank">Message</a>
+                <a className="" href={`https://www.twitch.tv/message/compose?to=${this.props.state.userData.name}`} target="_blank">Message</a>
               </div>
             </div>
           </div>
@@ -49,22 +49,22 @@
           </div>
           <div className="icons">
             <div className="icon">
-              <a href="http://twitter.com/piecedigital">
+              <a href="https://twitter.com/piecedigital">
                 <img src="/assets/twitter.png" />
               </a>
             </div>
             <div className="icon">
-              <a href="http://facebook.com/piecedigitalstudios">
+              <a href="https://facebook.com/piecedigitalstudios">
                 <img src="/assets/facebook.png" />
               </a>
             </div>
             <div className="icon">
-              <a href="http://instagram.com/piecedigitalstudios">
+              <a href="https://instagram.com/piecedigitalstudios">
                 <img src="/assets/instagram.png" />
               </a>
             </div>
             <div className="icon">
-              <a href="http://tumblr.com/piecedigitalstudios">
+              <a href="https://tumblr.com/piecedigitalstudios">
                 <img src="/assets/tumblr.png" />
               </a>
             </div>
@@ -87,17 +87,17 @@
             <h1 className="">{this.props.state.channelData.status}</h1>
           </div>
           <div className="game">
-            <span className="user">{this.props.state.userData.display_name}</span> playing <a className=" | bold rgb-text-40_40_40 no-underline" href={`http://www.twitch.tv/directory/game/${this.props.state.channelData.game}`}>{this.props.state.channelData.game}</a>
+            <span className="user">{this.props.state.userData.display_name}</span> playing <a className=" | bold rgb-text-40_40_40 no-underline" href={`https://www.twitch.tv/directory/game/${this.props.state.channelData.game}`}>{this.props.state.channelData.game}</a>
           </div>
         </div>
       </div>
       <div className="stream-section">
 
         <div className="video-embed">
-          <iframe className="" src={`http://player.twitch.tv/?channel=${this.props.state.userData.name}`} frameBorder="0" scrolling="false"></iframe>
+          <iframe className="" src={`https://player.twitch.tv/?channel=${this.props.state.userData.name}`} frameBorder="0" scrolling="false"></iframe>
         </div>
         <div className="chat-embed">
-          <iframe className="" src={`http://twitch.tv/${this.props.state.userData.name}/chat`} frameBorder="0"></iframe>
+          <iframe className="" src={`https://twitch.tv/${this.props.state.userData.name}/chat`} frameBorder="0"></iframe>
         </div>
       </div>
       <div className="options-belt">
@@ -113,15 +113,15 @@
             <div className="share-box">
               <div>
                 <label>Channel Link</label>
-                <input type="text" readOnly="true" value={ `http://www.twitch.tv/${this.props.state.userData.name}` } onClick={ this.select } />
+                <input type="text" readOnly="true" value={ `https://www.twitch.tv/${this.props.state.userData.name}` } onClick={ this.select } />
               </div>
               <div>
                 <label>Channel Link</label>
-                <input type="text" readOnly="true" value={ `<iframe src="http://player.twitch.tv/?channel=${this.props.state.userData.name}" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="http://www.twitch.tv/${this.props.state.userData.name}?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from ${this.props.state.userData.name} on www.twitch.tv</a>` } onClick={ this.select } />
+                <input type="text" readOnly="true" value={ `<iframe src="https://player.twitch.tv/?channel=${this.props.state.userData.name}" frameborder="0" scrolling="no" height="378" width="620"></iframe><a href="https://www.twitch.tv/${this.props.state.userData.name}?tt_medium=live_embed&tt_content=text_link" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">Watch live video from ${this.props.state.userData.name} on www.twitch.tv</a>` } onClick={ this.select } />
               </div>
               <div>
                 <label>Channel Link</label>
-                <input type="text" readOnly="true" value={ `<iframe src="http://www.twitch.tv/${this.props.state.userData.name}/chat?popout=" frameborder="0" scrolling="no" height="500" width="350"></iframe>` } onClick={ this.select } />
+                <input type="text" readOnly="true" value={ `<iframe src="https://www.twitch.tv/${this.props.state.userData.name}/chat?popout=" frameborder="0" scrolling="no" height="500" width="350"></iframe>` } onClick={ this.select } />
               </div>
             </div>
           </label>
@@ -196,7 +196,7 @@
                 </a>
                 <span className="video-info | block">
                   <span className="| inline-block">{video.title}</span>
-                  <span className="| inline-block"><a className="underline" href={`http://twitch.tv/${video.channel.name}`} target="_blank">{video.channel.display_name}</a>{(function(){
+                  <span className="| inline-block"><a className="underline" href={`https://twitch.tv/${video.channel.name}`} target="_blank">{video.channel.display_name}</a>{(function(){
                     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
                     var time = new Date(video.recorded_at);
