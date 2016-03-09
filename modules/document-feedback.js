@@ -8,16 +8,16 @@ var React = require("react"),
 	},
 	path = require("path"),
 	CSGenerator = require("./client-script-generator");
-console.log(process.env["TWITCH_CLIENT_KEY"], process.env["TWITCH_SECRET_KEY"])
+
 try {
 	var config = require("./config");
 } catch (e) {
 	if (e instanceof Error && e.code === "MODULE_NOT_FOUND") {
 		if(!process.env["TWITCH_CLIENT_KEY"]) {
-			throw console.error(new Error("TWITCH_CLIENT_KEY don't exist"));
+			throw console.error(new Error("TWITCH_CLIENT_KEY doesn't exist"));
 		};
 		if(!process.env["TWITCH_SECRET_KEY"]) {
-			throw console.error(new Error("TWITCH_SECRET_KEY don't exist"));
+			throw console.error(new Error("TWITCH_SECRET_KEY doesn't exist"));
 		};
 
 		var config = {
