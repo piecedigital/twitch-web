@@ -1,8 +1,11 @@
 <div id="render-document" className="">
-  <div className="top-bar">
+  <div className={"top-bar" + (this.props.state.topBar ? "" : " closed")}>
     <div className="options">
+      <div className="btn-default toggle-top-bar" onClick={this.props.toggleTopBar}>
+        ^
+      </div>
       <div className="btn-default toggle-side-panel" onClick={this.props.toggleSidePanel}>
-        Side Panel
+        Toggle Side Panel
       </div>
     </div>
     <div className="authentication">
@@ -14,60 +17,63 @@
       </div>
     </div>
   </div>
-  <div className="page">
+  <div className={"page" + (this.props.state.topBar ? "" : " closed")}>
 
-  	<div className="side-panel">
-      <div className="profile-image">
-        <div className="">
-          <img className="" src={this.props.state.userData.logo} />
-          <div className="channel-status">
-            <h3 className="">Offline</h3>
-          </div>
-          <div className="channel-options">
-            <div className="message">
-              <a className="" href={`http://www.twitch.tv/message/compose?to=${this.props.state.userData.name}`} target="_blank">Message</a>
+  	<div className={ "side-panel" + (this.props.state.panelOpen ? " open" : "") }>
+      <div className="container">
+        <div className="profile-image">
+          <div className="">
+            <img className="" src={this.props.state.userData.logo} />
+            <div className="channel-status">
+              <h3 className="">Offline</h3>
+            </div>
+            <span>|</span>
+            <div className="channel-options">
+              <div className="message">
+                <a className="" href={`http://www.twitch.tv/message/compose?to=${this.props.state.userData.name}`} target="_blank">Message</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="channel-name">
-        <h3 className="">{this.props.state.userData.display_name}</h3>
-      </div>
-      <div className="separator"></div>
-      <div className="channel-bio">
-        <p className="">{this.props.state.userData.bio}</p>
-      </div>
-      <div className="separator"></div>
-      <div className="social-media">
-        <div className="title">
-          <h4 className="">Social Media</h4>
+        <div className="channel-name">
+          <h3 className="">{this.props.state.userData.display_name}</h3>
         </div>
-        <div className="icons">
-          <div className="icon">
-            <a href="http://twitter.com/piecedigital">
-              <img src="/assets/twitter.png" />
-            </a>
+        <div className="separator"></div>
+        <div className="channel-bio">
+          <p className="">{this.props.state.userData.bio}</p>
+        </div>
+        <div className="separator"></div>
+        <div className="social-media">
+          <div className="title">
+            <h4 className="">Social Media</h4>
           </div>
-          <div className="icon">
-            <a href="http://facebook.com/piecedigitalstudios">
-              <img src="/assets/facebook.png" />
-            </a>
-          </div>
-          <div className="icon">
-            <a href="http://instagram.com/piecedigitalstudios">
-              <img src="/assets/instagram.png" />
-            </a>
-          </div>
-          <div className="icon">
-            <a href="http://tumblr.com/piecedigitalstudios">
-              <img src="/assets/tumblr.png" />
-            </a>
+          <div className="icons">
+            <div className="icon">
+              <a href="http://twitter.com/piecedigital">
+                <img src="/assets/twitter.png" />
+              </a>
+            </div>
+            <div className="icon">
+              <a href="http://facebook.com/piecedigitalstudios">
+                <img src="/assets/facebook.png" />
+              </a>
+            </div>
+            <div className="icon">
+              <a href="http://instagram.com/piecedigitalstudios">
+                <img src="/assets/instagram.png" />
+              </a>
+            </div>
+            <div className="icon">
+              <a href="http://tumblr.com/piecedigitalstudios">
+                <img src="/assets/tumblr.png" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div className="main-section">
+    <div className={"main-section" + (this.props.state.theaterMode ? " theater" : "")}>
       <div className="header">
         <div className="profile-image">
           <div className="image-container">

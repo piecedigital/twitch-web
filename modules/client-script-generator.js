@@ -1,4 +1,7 @@
 module.exports = function(renderData, pageData, config) {
+  renderData.panelOpen = false;
+  renderData.theaterMode = false;
+  renderData.topBar = true;
   return `var clientKey = "${config.twitchClientKey}";
 
 var RenderDocument = React.createClass({
@@ -25,10 +28,16 @@ followChannel: function() {
   }
 },
 toggleTheater: function() {
-  $(".stream-section").toggleClass("theater");
+  this.setState({ theaterMode : this.state.theaterMode ? false : true })
 },
 toggleChat: function() {
   $(".stream-section").toggleClass("hide-chat");
+},
+toggleSidePanel: function() {
+  this.setState({ panelOpen : this.state.panelOpen ? false : true })
+},
+toggleTopBar: function() {
+  this.setState({ topBar : this.state.topBar ? false : true })
 },
 loadStream: function(e) {
   $(e.target).addClass("hidden-force");
@@ -41,6 +50,13 @@ loadRecording: function(e) {
 
   $(".video-embed iframe").attr("src", url);
   $(".options-belt .auth-needed .stream").removeClass("hidden-force");
+},
+sendMessage: function() {
+  window.open("http://www.twitch.tv/message/compose?to=${renderData.userData.display_name}", "_blank");
+},
+select: function(e) {
+  console.log("stuffffff")
+  e.target.select();
 },
 componentDidMount: function() {
   var self = this;
@@ -80,13 +96,6 @@ render: function render() {
 var DocumentChild = React.createClass({
 displayName: "RenderDocument",
 
-sendMessage: function() {
-  window.open("http://www.twitch.tv/message/compose?to=${renderData.userData.display_name}", "_blank");
-},
-select: function(e) {
-  console.log("stuffffff")
-  e.target.select();
-},
 render: function render() {
   return (${pageData}(this))
 }

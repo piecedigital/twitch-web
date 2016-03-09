@@ -49,48 +49,28 @@
   }
   & .stream-section {
   	position: relative;
+		height: 100vh;
   	max-height: 34*$em;
   	padding: 0 22*$em 0 0;
   	margin: 1*$em 0;
     & .video-embed {
     	width: 100%;
+			height: 100%;
       & iframe {
       	width: 100%;
       	height: 100%;
       }
     }
-    & .chat-embed {
-    	position: absolute;
-    	top: 0*$em;
-    	right: 0*$em;
-    	width: 21*$em;
-      & iframe {
-      	width: 100%;
-      	height: 100%;
-      }
-    }
-    &.theater {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      max-height: 100%;
-      padding-top: 2*$em;
-      margin: 0;
-      background-color: $lightBlue;
-      & .chat-embed {
-        width: 22*$em;
-        height: 100%;
-      }
-      & + .options-belt {
-        & .auth-needed {
-          position: fixed;
-          top: 0;
-          left: 0;
-        }
-      }
-    }
+		& .chat-embed {
+			position: absolute;
+			top: 0*$em;
+			right: 0*$em;
+			width: 21*$em;
+			& iframe {
+				width: 100%;
+				height: 100%;
+			}
+		}
     &.hide-chat {
       padding-right: 0;
       & .chat-embed {
@@ -98,6 +78,32 @@
       }
     }
   }
+	&.theater {
+		& .stream-section {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			max-height: 100%;
+			padding-top: 3*$em;
+			margin: 0;
+			background-color: $lightBlue;
+			& .chat-embed {
+				width: 22*$em;
+				height: 100%;
+				margin: 3*$em 0 0;
+			}
+			& + .options-belt {
+				& .auth-needed {
+					position: fixed;
+					top: 0;
+					left: 3.5*$em;
+					padding: .5*$em 0;
+				}
+			}
+		}
+	}
   & .options-belt {
     & .auth-needed {
     	display: inline-block;
@@ -169,6 +175,7 @@
       }
     }
   }
+
   & .channel-panels {
     & .title {
       h1 {
@@ -296,13 +303,13 @@
 	      }
 	    }
 	    & .chat-embed {
-	    	position: absolute;
-	    	top: 0*$em;
-	    	right: 0*$em;
-	    	width: 21*$em;
+	    	// position: absolute;
+	    	// top: 0*$em;
+	    	// right: 0*$em;
+	    	// width: 21*$em;
 	      & iframe {
-	      	width: 100%;
-	      	height: 100%;
+	      	// width: 100%;
+	      	// height: 100%;
 	      }
 	    }
 	    &.theater {
@@ -431,6 +438,1039 @@
 	    & .panel {
 	    	// display: inline-block;
 	    	// width: 33.3333333%;
+	    	// padding: .5*$em;
+	      & > div {
+	      	// height: 15*$em;
+	      	// background-color: rgba(100, 200, 250, 1);
+	      	// overflow: auto;
+	        & .image {
+	          // padding: .5*$em;
+	          // background-color: rgba(60, 160, 210, 1);
+	          & img {
+	          	// max-width: 100%;
+	          	// max-height: 100%;
+	          }
+	        }
+	        & .body {
+	        	// max-width: 100%;
+	        	// max-height: 100%;
+	        	// padding: .5*$em;
+	        }
+	      }
+	    }
+	  }
+	  & .channel-past-broadcasts {
+	    & .title {
+	      & h1 {
+	      	// padding: 0;
+	      	// margin: 0;
+	      }
+	    }
+	    & .video {
+	    	// display: inline-block;
+	    	// width: 33.3333333%;
+	    	// padding: .5*$em;
+	    	// text-decoration: none;
+	    	// color: $offBlack;
+	      & > a {
+	      	// display: block;
+	      	// height: 15*$em;
+	      	// background-color: rgba(100, 200, 250, 1);
+	      	// overflow: auto;
+	      }
+	      & .video-info {
+	      	// display: block;
+	        & span {
+	        	// display: inline-block;
+	        	& a {
+	            // margin: 0 .4*$em 0 0;
+	        		// text-decoration: underline;
+	        	}
+	        }
+	      }
+	    }
+	  }
+	}
+}
+@include media-max(840px) {
+	& .main-section {
+		// position: relative;
+		// width: 100%;
+		// padding: 1*$em;
+		// border-radius: 1*$em;
+		// background-color: rgba(220, 240, 250, 1);
+	  & .header {
+	    & .profile-image {
+	    	// display: inline-block;
+	    	// width: 5*$em;
+	      & .image-container {
+	        & > div {
+	        	// width: 4*$em;
+	        	// padding: .2*$em;
+	        	// border-radius: .5*$em;
+	        	// background-color: rgba(100, 200, 250, 1);
+	          img {
+	        		// max-width: 100%;
+	        		// max-height: 100%;
+	          	// display: block;
+	          	// border-radius: .5*$em;
+	          }
+	        }
+	      }
+	    }
+	    & .stream-text {
+	    	// display: inline-block;
+	      & .title {
+	        & h1 {
+	        	// padding: 0;
+	        	// margin: 0;
+	        	// font-size: 2.5*$em;
+	        }
+	      }
+	      & .game {
+	        & .user {
+	        	// font-weight: bold;
+	        }
+	      	& a {
+	      		// color: $offBlack;
+	      		// text-decoration: none;
+	      		// font-weight: bold;
+	          &:hover {
+	            // text-decoration: underline;
+	          }
+	      	}
+	      }
+	    }
+	  }
+	  & .stream-section {
+	  	// position: relative;
+	  	max-height: none;
+	  	padding: 0;
+	  	// margin: 1*$em 0;
+	    & .video-embed {
+	    	// width: 100%;
+	      & iframe {
+	      	// width: 100%;
+	      	// height: 100%;
+	      }
+	    }
+	    & .chat-embed {
+	    	position: absolute;
+	    	// top: 0*$em;
+	    	// right: 0*$em;
+	    	// width: 100%;
+				opacity: .5;
+	      & iframe {
+	      	// width: 100%;
+	      	// height: 100%;
+	      }
+	    }
+	    &.theater {
+	      // position: fixed;
+	      // top: 0;
+	      // left: 0;
+	      // width: 100%;
+	      // height: 100%;
+	      // max-height: 100%;
+	      // padding-top: 2*$em;
+	      // margin: 0;
+	      // background-color: $lightBlue;
+	      & .chat-embed {
+	        // width: 22*$em;
+	        // height: 100%;
+	      }
+	      & + .options-belt {
+	        & .auth-needed {
+	          // position: fixed;
+	          // top: 0;
+	          // left: 0;
+	        }
+	      }
+	    }
+	    &.hide-chat {
+	      // padding-right: 0;
+	      & .chat-embed {
+	        // width: 0;
+	      }
+	    }
+	  }
+	  & .options-belt {
+	    & .auth-needed {
+	    	// display: inline-block;
+	    	// width: 50%;
+	    	// text-align: left;
+	      & > div, > label {
+	        // display: inline-block;
+	        // position: relative;
+	      	// margin: 0 .2*$em;
+	      	// padding: .3*$em;
+	      	// border-radius: .3*$em;
+	      	// background-color: rgba(100, 200, 250, 1);
+					// cursor: pointer;
+	        *, *:after {
+	          // color: black;
+	        }
+	        &:hover {
+	          // background-color: $midBlue;
+	          *, *:after {
+	            // color: $veryLightBlue;
+	          }
+	        }
+	        & span {
+	          // pointer-events: none;
+	        }
+	        &.share {
+	          & span {
+	            &:after {
+	              // content: "\2195";
+	              // display: inline-block;
+	              // margin: 0 0 0 .4*$em;
+	            }
+	          }
+	          & .share-box {
+	            // z-index: 1;
+	            // display: none;
+	            // position: absolute;
+	            // top: -.5*$em;
+	            // left: 100%;
+							// @include transformT(-50%, -100%);
+							// padding: 1*$em;
+	            // border-radius: .5*$em;
+	            // box-shadow: inset 0 0 0 .2*$em $lightBlue;
+	            // background-color: $veryLightBlue;
+	            // color: black;
+	            // pointer-events: none;
+	            & * {
+	              // color: black;
+	            }
+	            & input {
+								// pointer-events: all;
+	              // width: 20*$em;
+	            }
+	          }
+	          & #share-input {
+	            // display: none;
+	            &:checked ~ .share-box {
+	              // display: block;
+	            }
+	          }
+	        }
+	        & .notification-option {
+	          // cursor: pointer;
+	        }
+	      }
+	    }
+	    & .no-auth {
+	    	// display: inline-block;
+	    	// width: 50%;
+	    	// text-align: right;
+	      & .wraper {
+	      	// display: inline-block;
+	      	// padding: .5*$em;
+	      	// border-radius: .3*$em;
+	      	// background-color: rgba(200, 220, 250, 1);
+	      	& > div {
+	      		// display: inline-block;
+	      		& .counter {
+	      			// margin: 0 .5*$em;
+	      		}
+	      		&.viewers {}
+	      		&.views {}
+	      		&.followers {}
+	      	}
+	      }
+	    }
+	  }
+	  & .channel-panels {
+	    & .title {
+	      h1 {
+	      	// padding: 0;
+	      	// margin: 0;
+	      }
+	    }
+	    & .panel {
+	    	// display: inline-block;
+	    	// width: 50%;
+	    	// padding: .5*$em;
+	      & > div {
+	      	// height: 15*$em;
+	      	// background-color: rgba(100, 200, 250, 1);
+	      	// overflow: auto;
+	        & .image {
+	          // padding: .5*$em;
+	          // background-color: rgba(60, 160, 210, 1);
+	          & img {
+	          	// max-width: 100%;
+	          	// max-height: 100%;
+	          }
+	        }
+	        & .body {
+	        	// max-width: 100%;
+	        	// max-height: 100%;
+	        	// padding: .5*$em;
+	        }
+	      }
+	    }
+	  }
+	  & .channel-past-broadcasts {
+	    & .title {
+	      & h1 {
+	      	// padding: 0;
+	      	// margin: 0;
+	      }
+	    }
+	    & .video {
+	    	// display: inline-block;
+	    	// width: 33.3333333%;
+	    	// padding: .5*$em;
+	    	// text-decoration: none;
+	    	// color: $offBlack;
+	      & > a {
+	      	// display: block;
+	      	// height: 15*$em;
+	      	// background-color: rgba(100, 200, 250, 1);
+	      	// overflow: auto;
+	      }
+	      & .video-info {
+	      	// display: block;
+	        & span {
+	        	// display: inline-block;
+	        	& a {
+	            // margin: 0 .4*$em 0 0;
+	        		// text-decoration: underline;
+	        	}
+	        }
+	      }
+	    }
+	  }
+	}
+}
+@include media-max(800px) {
+	& .main-section {
+		// position: relative;
+		// width: 100%;
+		// padding: 1*$em;
+		// border-radius: 1*$em;
+		// background-color: rgba(220, 240, 250, 1);
+	  & .header {
+	    & .profile-image {
+	    	// display: inline-block;
+	    	// width: 5*$em;
+	      & .image-container {
+	        & > div {
+	        	// width: 4*$em;
+	        	// padding: .2*$em;
+	        	// border-radius: .5*$em;
+	        	// background-color: rgba(100, 200, 250, 1);
+	          img {
+	        		// max-width: 100%;
+	        		// max-height: 100%;
+	          	// display: block;
+	          	// border-radius: .5*$em;
+	          }
+	        }
+	      }
+	    }
+	    & .stream-text {
+	    	// display: inline-block;
+	      & .title {
+	        & h1 {
+	        	// padding: 0;
+	        	// margin: 0;
+	        	// font-size: 2.5*$em;
+	        }
+	      }
+	      & .game {
+	        & .user {
+	        	// font-weight: bold;
+	        }
+	      	& a {
+	      		// color: $offBlack;
+	      		// text-decoration: none;
+	      		// font-weight: bold;
+	          &:hover {
+	            // text-decoration: underline;
+	          }
+	      	}
+	      }
+	    }
+	  }
+	  & .stream-section {
+	  	// position: relative;
+	  	// max-height: none;
+	  	// padding: 0;
+	  	// margin: 1*$em 0;
+	    & .video-embed {
+	    	// width: 100%;
+	      & iframe {
+	      	// width: 100%;
+	      	// height: 100%;
+	      }
+	    }
+	    & .chat-embed {
+	    	// position: relative;
+	    	// top: 0*$em;
+	    	// right: 0*$em;
+	    	// width: 100%;
+				// margin: 1*$em 0 0;
+	      & iframe {
+	      	// width: 100%;
+	      	// height: 100%;
+	      }
+	    }
+	    &.theater {
+	      // position: fixed;
+	      // top: 0;
+	      // left: 0;
+	      // width: 100%;
+	      // height: 100%;
+	      // max-height: 100%;
+	      // padding-top: 2*$em;
+	      // margin: 0;
+	      // background-color: $lightBlue;
+	      & .chat-embed {
+	        // width: 22*$em;
+	        // height: 100%;
+	      }
+	      & + .options-belt {
+	        & .auth-needed {
+	          // position: fixed;
+	          // top: 0;
+	          // left: 0;
+	        }
+	      }
+	    }
+	    &.hide-chat {
+	      // padding-right: 0;
+	      & .chat-embed {
+	        // width: 0;
+	      }
+	    }
+	  }
+	  & .options-belt {
+	    & .auth-needed {
+	    	// display: inline-block;
+	    	// width: 50%;
+	    	// text-align: left;
+	      & > div, > label {
+	        // display: block;
+	        // position: relative;
+					// max-width: 9*$em;
+	      	// margin: .2*$em;
+	      	// padding: .3*$em;
+	      	// border-radius: .3*$em;
+	      	// background-color: rgba(100, 200, 250, 1);
+					// cursor: pointer;
+					// text-align: center;
+	        *, *:after {
+	          // color: black;
+	        }
+	        &:hover {
+	          // background-color: $midBlue;
+	          *, *:after {
+	            // color: $veryLightBlue;
+	          }
+	        }
+	        & span {
+	          // pointer-events: none;
+	        }
+	        &.share {
+	          & span {
+	            &:after {
+	              // content: "\2195";
+	              // display: inline-block;
+	              // margin: 0 0 0 .4*$em;
+	            }
+	          }
+	          & .share-box {
+	            // z-index: 1;
+	            // display: none;
+	            // position: absolute;
+	            // top: -.5*$em;
+	            // left: 100%;
+							// @include transformT(-50%, -100%);
+							// padding: 1*$em;
+	            // border-radius: .5*$em;
+	            // box-shadow: inset 0 0 0 .2*$em $lightBlue;
+	            // background-color: $veryLightBlue;
+	            // color: black;
+	            // pointer-events: none;
+	            & * {
+	              // color: black;
+	            }
+	            & input {
+								// pointer-events: all;
+	              // width: 20*$em;
+	            }
+	          }
+	          & #share-input {
+	            // display: none;
+	            &:checked ~ .share-box {
+	              // display: block;
+	            }
+	          }
+	        }
+	        & .notification-option {
+	          // cursor: pointer;
+	        }
+	      }
+	    }
+	    & .no-auth {
+	    	// display: inline-block;
+	    	// width: 50%;
+	    	// text-align: right;
+	      & .wraper {
+	      	// display: inline-block;
+	      	// padding: .5*$em;
+	      	// border-radius: .3*$em;
+	      	// background-color: rgba(200, 220, 250, 1);
+	      	& > div {
+	      		// display: block;
+	      		& .counter {
+	      			// margin: 0 .5*$em;
+	      		}
+	      		&.viewers {}
+	      		&.views {}
+	      		&.followers {}
+	      	}
+	      }
+	    }
+	  }
+		&:not(.theater) {
+			& .options-belt {
+				& .auth-needed {
+		      & > div, > label {
+						display: block;
+						max-width: 9*$em;
+		      	margin: .2*$em;
+						text-align: center;
+					}
+				}
+				& .no-auth {
+					& .wraper {
+						& > div {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	  & .channel-panels {
+	    & .title {
+	      h1 {
+	      	// padding: 0;
+	      	// margin: 0;
+	      }
+	    }
+	    & .panel {
+	    	// display: inline-block;
+	    	// width: 50%;
+	    	// padding: .5*$em;
+	      & > div {
+	      	// height: 15*$em;
+	      	// background-color: rgba(100, 200, 250, 1);
+	      	// overflow: auto;
+	        & .image {
+	          // padding: .5*$em;
+	          // background-color: rgba(60, 160, 210, 1);
+	          & img {
+	          	// max-width: 100%;
+	          	// max-height: 100%;
+	          }
+	        }
+	        & .body {
+	        	// max-width: 100%;
+	        	// max-height: 100%;
+	        	// padding: .5*$em;
+	        }
+	      }
+	    }
+	  }
+	  & .channel-past-broadcasts {
+	    & .title {
+	      & h1 {
+	      	// padding: 0;
+	      	// margin: 0;
+	      }
+	    }
+	    & .video {
+	    	// display: inline-block;
+	    	// width: 33.3333333%;
+	    	// padding: .5*$em;
+	    	// text-decoration: none;
+	    	// color: $offBlack;
+	      & > a {
+	      	// display: block;
+	      	// height: 15*$em;
+	      	// background-color: rgba(100, 200, 250, 1);
+	      	// overflow: auto;
+	      }
+	      & .video-info {
+	      	// display: block;
+	        & span {
+	        	// display: inline-block;
+	        	& a {
+	            // margin: 0 .4*$em 0 0;
+	        		// text-decoration: underline;
+	        	}
+	        }
+	      }
+	    }
+	  }
+	}
+}
+
+@include media-max(700px) {
+	& .main-section {
+		// position: relative;
+		// width: 100%;
+		// padding: 1*$em;
+		// border-radius: 1*$em;
+		// background-color: rgba(220, 240, 250, 1);
+	  & .header {
+	    & .profile-image {
+	    	// display: inline-block;
+	    	// width: 5*$em;
+	      & .image-container {
+	        & > div {
+	        	// width: 4*$em;
+	        	// padding: .2*$em;
+	        	// border-radius: .5*$em;
+	        	// background-color: rgba(100, 200, 250, 1);
+	          img {
+	        		// max-width: 100%;
+	        		// max-height: 100%;
+	          	// display: block;
+	          	// border-radius: .5*$em;
+	          }
+	        }
+	      }
+	    }
+	    & .stream-text {
+	    	// display: inline-block;
+	      & .title {
+	        & h1 {
+	        	// padding: 0;
+	        	// margin: 0;
+	        	// font-size: 2.5*$em;
+	        }
+	      }
+	      & .game {
+	        & .user {
+	        	// font-weight: bold;
+	        }
+	      	& a {
+	      		// color: $offBlack;
+	      		// text-decoration: none;
+	      		// font-weight: bold;
+	          &:hover {
+	            // text-decoration: underline;
+	          }
+	      	}
+	      }
+	    }
+	  }
+	  & .stream-section {
+	  	// position: relative;
+	  	// max-height: 34*$em;
+	  	// padding: 0 22*$em 0 0;
+	  	// margin: 1*$em 0;
+	    & .video-embed {
+	    	// width: 100%;
+	      & iframe {
+	      	// width: 100%;
+	      	// height: 100%;
+	      }
+	    }
+	    & .chat-embed {
+	    	// position: absolute;
+	    	// top: 0*$em;
+	    	// right: 0*$em;
+	    	// width: 21*$em;
+	      & iframe {
+	      	// width: 100%;
+	      	// height: 100%;
+	      }
+	    }
+	    &.theater {
+	      // position: fixed;
+	      // top: 0;
+	      // left: 0;
+	      // width: 100%;
+	      // height: 100%;
+	      // max-height: 100%;
+	      // padding-top: 2*$em;
+	      // margin: 0;
+	      // background-color: $lightBlue;
+	      & .chat-embed {
+	        // width: 22*$em;
+	        // height: 100%;
+	      }
+	      & + .options-belt {
+	        & .auth-needed {
+	          // position: fixed;
+	          // top: 0;
+	          // left: 0;
+	        }
+	      }
+	    }
+	    &.hide-chat {
+	      // padding-right: 0;
+	      & .chat-embed {
+	        // width: 0;
+	      }
+	    }
+	  }
+	  & .options-belt {
+	    & .auth-needed {
+	    	// display: inline-block;
+	    	// width: 50%;
+	    	// text-align: left;
+	      & > div, > label {
+	        // display: inline-block;
+	        // position: relative;
+	      	// margin: 0 .2*$em;
+	      	// padding: .3*$em;
+	      	// border-radius: .3*$em;
+	      	// background-color: rgba(100, 200, 250, 1);
+					// cursor: pointer;
+	        *, *:after {
+	          // color: black;
+	        }
+	        &:hover {
+	          // background-color: $midBlue;
+	          *, *:after {
+	            // color: $veryLightBlue;
+	          }
+	        }
+	        & span {
+	          // pointer-events: none;
+	        }
+	        &.share {
+	          & span {
+	            &:after {
+	              // content: "\2195";
+	              // display: inline-block;
+	              // margin: 0 0 0 .4*$em;
+	            }
+	          }
+	          & .share-box {
+	            // z-index: 1;
+	            // display: none;
+	            // position: absolute;
+	            // top: -.5*$em;
+	            // left: 100%;
+							// @include transformT(-50%, -100%);
+							// padding: 1*$em;
+	            // border-radius: .5*$em;
+	            // box-shadow: inset 0 0 0 .2*$em $lightBlue;
+	            // background-color: $veryLightBlue;
+	            // color: black;
+	            // pointer-events: none;
+	            & * {
+	              // color: black;
+	            }
+	            & input {
+								// pointer-events: all;
+	              // width: 20*$em;
+	            }
+	          }
+	          & #share-input {
+	            // display: none;
+	            &:checked ~ .share-box {
+	              // display: block;
+	            }
+	          }
+	        }
+	        & .notification-option {
+	          // cursor: pointer;
+	        }
+	      }
+	    }
+	    & .no-auth {
+	    	// display: inline-block;
+	    	// width: 50%;
+	    	// text-align: right;
+	      & .wraper {
+	      	// display: inline-block;
+	      	// padding: .5*$em;
+	      	// border-radius: .3*$em;
+	      	// background-color: rgba(200, 220, 250, 1);
+	      	& > div {
+	      		// display: inline-block;
+	      		& .counter {
+	      			// margin: 0 .5*$em;
+	      		}
+	      		&.viewers {}
+	      		&.views {}
+	      		&.followers {}
+	      	}
+	      }
+	    }
+	  }
+	  & .channel-panels {
+	    & .title {
+	      h1 {
+	      	// padding: 0;
+	      	// margin: 0;
+	      }
+	    }
+	    & .panel {
+	    	// display: inline-block;
+	    	width: 50%;
+	    	// padding: .5*$em;
+	      & > div {
+	      	// height: 15*$em;
+	      	// background-color: rgba(100, 200, 250, 1);
+	      	// overflow: auto;
+	        & .image {
+	          // padding: .5*$em;
+	          // background-color: rgba(60, 160, 210, 1);
+	          & img {
+	          	// max-width: 100%;
+	          	// max-height: 100%;
+	          }
+	        }
+	        & .body {
+	        	// max-width: 100%;
+	        	// max-height: 100%;
+	        	// padding: .5*$em;
+	        }
+	      }
+	    }
+	  }
+	  & .channel-past-broadcasts {
+	    & .title {
+	      & h1 {
+	      	// padding: 0;
+	      	// margin: 0;
+	      }
+	    }
+	    & .video {
+	    	// display: inline-block;
+	    	// width: 33.3333333%;
+	    	// padding: .5*$em;
+	    	// text-decoration: none;
+	    	// color: $offBlack;
+	      & > a {
+	      	// display: block;
+	      	// height: 15*$em;
+	      	// background-color: rgba(100, 200, 250, 1);
+	      	// overflow: auto;
+	      }
+	      & .video-info {
+	      	// display: block;
+	        & span {
+	        	// display: inline-block;
+	        	& a {
+	            // margin: 0 .4*$em 0 0;
+	        		// text-decoration: underline;
+	        	}
+	        }
+	      }
+	    }
+	  }
+	}
+}
+
+@include media-max(500px) {
+	& .main-section {
+		// position: relative;
+		// width: 100%;
+		// padding: 1*$em;
+		// border-radius: 1*$em;
+		// background-color: rgba(220, 240, 250, 1);
+	  & .header {
+	    & .profile-image {
+	    	// display: inline-block;
+	    	// width: 5*$em;
+	      & .image-container {
+	        & > div {
+	        	// width: 4*$em;
+	        	// padding: .2*$em;
+	        	// border-radius: .5*$em;
+	        	// background-color: rgba(100, 200, 250, 1);
+	          img {
+	        		// max-width: 100%;
+	        		// max-height: 100%;
+	          	// display: block;
+	          	// border-radius: .5*$em;
+	          }
+	        }
+	      }
+	    }
+	    & .stream-text {
+	    	// display: inline-block;
+	      & .title {
+	        & h1 {
+	        	// padding: 0;
+	        	// margin: 0;
+	        	// font-size: 2.5*$em;
+	        }
+	      }
+	      & .game {
+	        & .user {
+	        	// font-weight: bold;
+	        }
+	      	& a {
+	      		// color: $offBlack;
+	      		// text-decoration: none;
+	      		// font-weight: bold;
+	          &:hover {
+	            // text-decoration: underline;
+	          }
+	      	}
+	      }
+	    }
+	  }
+	  & .stream-section {
+	  	// position: relative;
+	  	// max-height: 34*$em;
+	  	// padding: 0 22*$em 0 0;
+	  	// margin: 1*$em 0;
+	    & .video-embed {
+	    	// width: 100%;
+	      & iframe {
+	      	// width: 100%;
+	      	// height: 100%;
+	      }
+	    }
+	    & .chat-embed {
+	    	// position: absolute;
+	    	// top: 0*$em;
+	    	// right: 0*$em;
+	    	// width: 21*$em;
+	      & iframe {
+	      	// width: 100%;
+	      	// height: 100%;
+	      }
+	    }
+	    &.theater {
+	      // position: fixed;
+	      // top: 0;
+	      // left: 0;
+	      // width: 100%;
+	      // height: 100%;
+	      // max-height: 100%;
+	      // padding-top: 2*$em;
+	      // margin: 0;
+	      // background-color: $lightBlue;
+	      & .chat-embed {
+	        // width: 22*$em;
+	        // height: 100%;
+	      }
+	      & + .options-belt {
+	        & .auth-needed {
+	          // position: fixed;
+	          // top: 0;
+	          // left: 0;
+	        }
+	      }
+	    }
+	    &.hide-chat {
+	      // padding-right: 0;
+	      & .chat-embed {
+	        // width: 0;
+	      }
+	    }
+	  }
+	  & .options-belt {
+	    & .auth-needed {
+	    	// display: inline-block;
+	    	// width: 50%;
+	    	// text-align: left;
+	      & > div, > label {
+	        // display: inline-block;
+	        // position: relative;
+	      	// margin: 0 .2*$em;
+	      	// padding: .3*$em;
+	      	// border-radius: .3*$em;
+	      	// background-color: rgba(100, 200, 250, 1);
+					// cursor: pointer;
+	        *, *:after {
+	          // color: black;
+	        }
+	        &:hover {
+	          // background-color: $midBlue;
+	          *, *:after {
+	            // color: $veryLightBlue;
+	          }
+	        }
+	        & span {
+	          // pointer-events: none;
+	        }
+	        &.share {
+	          & span {
+	            &:after {
+	              // content: "\2195";
+	              // display: inline-block;
+	              // margin: 0 0 0 .4*$em;
+	            }
+	          }
+	          & .share-box {
+	            // z-index: 1;
+	            // display: none;
+	            // position: absolute;
+	            // top: -.5*$em;
+	            // left: 100%;
+							// @include transformT(-50%, -100%);
+							// padding: 1*$em;
+	            // border-radius: .5*$em;
+	            // box-shadow: inset 0 0 0 .2*$em $lightBlue;
+	            // background-color: $veryLightBlue;
+	            // color: black;
+	            // pointer-events: none;
+	            & * {
+	              // color: black;
+	            }
+	            & input {
+								// pointer-events: all;
+	              // width: 20*$em;
+	            }
+	          }
+	          & #share-input {
+	            // display: none;
+	            &:checked ~ .share-box {
+	              // display: block;
+	            }
+	          }
+	        }
+	        & .notification-option {
+	          // cursor: pointer;
+	        }
+	      }
+	    }
+	    & .no-auth {
+	    	// display: inline-block;
+	    	// width: 50%;
+	    	// text-align: right;
+	      & .wraper {
+	      	// display: inline-block;
+	      	// padding: .5*$em;
+	      	// border-radius: .3*$em;
+	      	// background-color: rgba(200, 220, 250, 1);
+	      	& > div {
+	      		// display: inline-block;
+	      		& .counter {
+	      			// margin: 0 .5*$em;
+	      		}
+	      		&.viewers {}
+	      		&.views {}
+	      		&.followers {}
+	      	}
+	      }
+	    }
+	  }
+	  & .channel-panels {
+	    & .title {
+	      h1 {
+	      	// padding: 0;
+	      	// margin: 0;
+	      }
+	    }
+	    & .panel {
+	    	display: block;
+	    	width: 100%;
 	    	// padding: .5*$em;
 	      & > div {
 	      	// height: 15*$em;

@@ -58,17 +58,19 @@ html {
   	max-width: 1600;
   	@import "_side_panel";
   	@import "_main_section";
+		&.closed {
+			padding: 1*$em 1*$em 1*$em 22*$em;
+		}
   }
 }
 
 @include media-max("1000px") {
 	#render-document {
-		& #authentication {
-			& div {
-			}
-		}
 	  & .page {
-	  	padding: 1*$em 1*$em 1*$em 1*$em;
+	  	padding: 4*$em 1*$em 1*$em 1*$em;
+			&.closed {
+				padding: 1*$em 1*$em 1*$em 1*$em;
+			}
 	  }
 	}
 }

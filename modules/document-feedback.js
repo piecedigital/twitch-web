@@ -67,7 +67,7 @@ module.exports = {
 
 			var RenderDocument = React.createClass({
 				render: function render() {
-					return childPage({ props : { state : data } });
+					return childPage({ props : { state : data }, state : { panelOpen : false } });
 				}
 			});
 

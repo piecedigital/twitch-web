@@ -12,7 +12,31 @@
   }
   & .options {
     text-align: left;
+    & .toggle-top-bar {
+      position: fixed;
+      top: .5*$em;
+      left: .5*$em;
+      color: transparent;
+      width: 2*$em;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transformT(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-top: 0*$em solid $dimBlue;
+        border-bottom: .5*$em solid $dimBlue;
+        border-left: .5*$em solid transparent;
+        border-right: .5*$em solid transparent;
+      }
+      &:hover:after {
+        border-color: $veryLightBlue transparent $veryLightBlue transparent;
+      }
+    }
     & .toggle-side-panel {
+      left: 3*$em;
     }
   }
   & .authentication {
@@ -24,6 +48,17 @@
       }
     }
     & .logout {
+    }
+  }
+  &.closed {
+    top: -100%;
+    & .options {
+      & .toggle-top-bar {
+        &:after {
+          border-top: .5*$em solid $dimBlue;
+          border-bottom: 0*$em solid $dimBlue;
+        }
+      }
     }
   }
 }

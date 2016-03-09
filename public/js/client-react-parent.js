@@ -4,7 +4,7 @@ var RenderDocument = React.createClass({
 displayName: "RenderDocument",
 
 getInitialState: function() {
-  return {"userData":{"display_name":"PieceDigital","_id":83101325,"name":"piecedigital","type":"user","bio":"Full-stack web developer, experience in building responsive websites and web apps using the Node server runtime. When I'm not programming I'm probably playing video games like League of Legends.","created_at":"2015-02-19T03:19:45Z","updated_at":"2016-03-08T19:01:08Z","logo":"https://static-cdn.jtvnw.net/jtv_user_pictures/piecedigital-profile_image-19ef151d5e81e1ed-300x300.png","_links":{"self":"https://api.twitch.tv/kraken/users/piecedigital"}},"channelData":{"mature":false,"status":"Learning how to play Skullgirls","broadcaster_language":"en","display_name":"PieceDigital","game":"Skullgirls","language":"en","_id":83101325,"name":"piecedigital","created_at":"2015-02-19T03:19:45Z","updated_at":"2016-03-08T19:01:08Z","delay":null,"logo":"https://static-cdn.jtvnw.net/jtv_user_pictures/piecedigital-profile_image-19ef151d5e81e1ed-300x300.png","banner":null,"video_banner":null,"background":null,"profile_banner":"https://static-cdn.jtvnw.net/jtv_user_pictures/piecedigital-profile_banner-5bea98f42e9179b8-480.png","profile_banner_background_color":null,"partner":false,"url":"http://www.twitch.tv/piecedigital","views":385,"followers":11,"_links":{"self":"https://api.twitch.tv/kraken/channels/piecedigital","follows":"https://api.twitch.tv/kraken/channels/piecedigital/follows","commercial":"https://api.twitch.tv/kraken/channels/piecedigital/commercial","stream_key":"https://api.twitch.tv/kraken/channels/piecedigital/stream_key","chat":"https://api.twitch.tv/kraken/chat/piecedigital","features":"https://api.twitch.tv/kraken/channels/piecedigital/features","subscriptions":"https://api.twitch.tv/kraken/channels/piecedigital/subscriptions","editors":"https://api.twitch.tv/kraken/channels/piecedigital/editors","teams":"https://api.twitch.tv/kraken/channels/piecedigital/teams","videos":"https://api.twitch.tv/kraken/channels/piecedigital/videos"}},"panelData":[{"_id":4332631,"display_order":1,"kind":"default","html_description":null,"user_id":83101325,"data":{"link":"http://instagram.com/piecedigitalstudios","image":"http://static-cdn.jtvnw.net/jtv_user_pictures/panel-83101325-image-c1ef7720cc0004b9-320.png","title":"Instagram"},"channel":"piecedigital"},{"_id":4333167,"display_order":2,"kind":"default","html_description":"<p>I'm a full-stack web developer.</p>\n\n<p>I use the MERN-stack.</p>\n\n<p>Click to visit my <a href=\"http://piecedigital.github.io\">website</a>.</p>\n\n<p>I'm open for work.</p>\n","user_id":83101325,"data":{"link":"http://piecedigital.github.io","image":"http://static-cdn.jtvnw.net/jtv_user_pictures/panel-83101325-image-3edc065014a32fa4-320.png","title":"Website","description":"I'm a full-stack web developer.\n\nI use the MERN-stack.\n\nClick to visit my [website](http://piecedigital.github.io).\n\nI'm open for work."},"channel":"piecedigital"},{"_id":4332623,"display_order":3,"kind":"default","html_description":null,"user_id":83101325,"data":{"link":"http://twitter.com/piecedigital","image":"http://static-cdn.jtvnw.net/jtv_user_pictures/panel-83101325-image-086b4fb924f41e72-320.png","title":"Twitter"},"channel":"piecedigital"},{"_id":4332647,"display_order":4,"kind":"default","html_description":null,"user_id":83101325,"data":{"link":"http://youtube.com/thepreygrigade","image":"http://static-cdn.jtvnw.net/jtv_user_pictures/panel-83101325-image-9767cf22e011eb88-320.png","title":"YouTube"},"channel":"piecedigital"},{"_id":8723933,"display_order":5,"kind":"default","html_description":"<p>If you'd like to gift me with a little extra coin feel free to donate! It's totally optional so you can just enjoy the stream :)</p>\n","user_id":83101325,"data":{"link":"https://streamtip.com/t/piecedigital","image":"https://static-cdn.jtvnw.net/jtv_user_pictures/panel-83101325-image-fa1859fb2ab24149-320.png","title":"Donate","description":"If you'd like to gift me with a little extra coin feel free to donate! It's totally optional so you can just enjoy the stream :)"},"channel":"piecedigital"},{"_id":8990500,"display_order":6,"kind":"default","html_description":"<ul>\n<li>!bio</li>\n<li>!about</li>\n<li>!twitter</li>\n</ul>\n\n","user_id":83101325,"data":{"link":"","image":"","title":"Commands","description":"* !bio\n* !about\n* !twitter"},"channel":"piecedigital"}],"streamData":{"stream":null,"_links":{"self":"https://api.twitch.tv/kraken/streams/piecedigital","channel":"https://api.twitch.tv/kraken/channels/piecedigital"}},"videoData":{"_total":0,"_links":{"self":"https://api.twitch.tv/kraken/channels/piecedigital/videos?broadcast_type=archive&broadcasts=true&limit=10&offset=0&user=piecedigital","next":"https://api.twitch.tv/kraken/channels/piecedigital/videos?broadcast_type=archive&broadcasts=true&limit=10&offset=10&user=piecedigital"},"videos":[]}};
+  return {"userData":{"display_name":"PieceDigital","_id":83101325,"name":"piecedigital","type":"user","bio":"Full-stack web developer, experience in building responsive websites and web apps using the Node server runtime. When I'm not programming I'm probably playing video games like League of Legends.","created_at":"2015-02-19T03:19:45Z","updated_at":"2016-03-08T19:01:08Z","logo":"https://static-cdn.jtvnw.net/jtv_user_pictures/piecedigital-profile_image-19ef151d5e81e1ed-300x300.png","_links":{"self":"https://api.twitch.tv/kraken/users/piecedigital"}},"channelData":{"mature":false,"status":"Learning how to play Skullgirls","broadcaster_language":"en","display_name":"PieceDigital","game":"Skullgirls","language":"en","_id":83101325,"name":"piecedigital","created_at":"2015-02-19T03:19:45Z","updated_at":"2016-03-08T19:01:08Z","delay":null,"logo":"https://static-cdn.jtvnw.net/jtv_user_pictures/piecedigital-profile_image-19ef151d5e81e1ed-300x300.png","banner":null,"video_banner":null,"background":null,"profile_banner":"https://static-cdn.jtvnw.net/jtv_user_pictures/piecedigital-profile_banner-5bea98f42e9179b8-480.png","profile_banner_background_color":null,"partner":false,"url":"http://www.twitch.tv/piecedigital","views":385,"followers":11,"_links":{"self":"https://api.twitch.tv/kraken/channels/piecedigital","follows":"https://api.twitch.tv/kraken/channels/piecedigital/follows","commercial":"https://api.twitch.tv/kraken/channels/piecedigital/commercial","stream_key":"https://api.twitch.tv/kraken/channels/piecedigital/stream_key","chat":"https://api.twitch.tv/kraken/chat/piecedigital","features":"https://api.twitch.tv/kraken/channels/piecedigital/features","subscriptions":"https://api.twitch.tv/kraken/channels/piecedigital/subscriptions","editors":"https://api.twitch.tv/kraken/channels/piecedigital/editors","teams":"https://api.twitch.tv/kraken/channels/piecedigital/teams","videos":"https://api.twitch.tv/kraken/channels/piecedigital/videos"}},"panelData":[{"_id":4332631,"display_order":1,"kind":"default","html_description":null,"user_id":83101325,"data":{"link":"http://instagram.com/piecedigitalstudios","image":"http://static-cdn.jtvnw.net/jtv_user_pictures/panel-83101325-image-c1ef7720cc0004b9-320.png","title":"Instagram"},"channel":"piecedigital"},{"_id":4333167,"display_order":2,"kind":"default","html_description":"<p>I'm a full-stack web developer.</p>\n\n<p>I use the MERN-stack.</p>\n\n<p>Click to visit my <a href=\"http://piecedigital.github.io\">website</a>.</p>\n\n<p>I'm open for work.</p>\n","user_id":83101325,"data":{"link":"http://piecedigital.github.io","image":"http://static-cdn.jtvnw.net/jtv_user_pictures/panel-83101325-image-3edc065014a32fa4-320.png","title":"Website","description":"I'm a full-stack web developer.\n\nI use the MERN-stack.\n\nClick to visit my [website](http://piecedigital.github.io).\n\nI'm open for work."},"channel":"piecedigital"},{"_id":4332623,"display_order":3,"kind":"default","html_description":null,"user_id":83101325,"data":{"link":"http://twitter.com/piecedigital","image":"http://static-cdn.jtvnw.net/jtv_user_pictures/panel-83101325-image-086b4fb924f41e72-320.png","title":"Twitter"},"channel":"piecedigital"},{"_id":4332647,"display_order":4,"kind":"default","html_description":null,"user_id":83101325,"data":{"link":"http://youtube.com/thepreygrigade","image":"http://static-cdn.jtvnw.net/jtv_user_pictures/panel-83101325-image-9767cf22e011eb88-320.png","title":"YouTube"},"channel":"piecedigital"},{"_id":8723933,"display_order":5,"kind":"default","html_description":"<p>If you'd like to gift me with a little extra coin feel free to donate! It's totally optional so you can just enjoy the stream :)</p>\n","user_id":83101325,"data":{"link":"https://streamtip.com/t/piecedigital","image":"https://static-cdn.jtvnw.net/jtv_user_pictures/panel-83101325-image-fa1859fb2ab24149-320.png","title":"Donate","description":"If you'd like to gift me with a little extra coin feel free to donate! It's totally optional so you can just enjoy the stream :)"},"channel":"piecedigital"},{"_id":8990500,"display_order":6,"kind":"default","html_description":"<ul>\n<li>!bio</li>\n<li>!about</li>\n<li>!twitter</li>\n</ul>\n\n","user_id":83101325,"data":{"link":"","image":"","title":"Commands","description":"* !bio\n* !about\n* !twitter"},"channel":"piecedigital"}],"streamData":{"stream":null,"_links":{"self":"https://api.twitch.tv/kraken/streams/piecedigital","channel":"https://api.twitch.tv/kraken/channels/piecedigital"}},"videoData":{"_total":0,"_links":{"self":"https://api.twitch.tv/kraken/channels/piecedigital/videos?broadcast_type=archive&broadcasts=true&limit=10&offset=0&user=piecedigital","next":"https://api.twitch.tv/kraken/channels/piecedigital/videos?broadcast_type=archive&broadcasts=true&limit=10&offset=10&user=piecedigital"},"videos":[]},"panelOpen":false,"theaterMode":false,"topBar":true};
 },
 login: function() {
   document.cookie = "app-redirect=" + location.href + ";domain=" + location.hostname + ";path=/";
@@ -24,10 +24,16 @@ followChannel: function() {
   }
 },
 toggleTheater: function() {
-  $(".stream-section").toggleClass("theater");
+  this.setState({ theaterMode : this.state.theaterMode ? false : true })
 },
 toggleChat: function() {
   $(".stream-section").toggleClass("hide-chat");
+},
+toggleSidePanel: function() {
+  this.setState({ panelOpen : this.state.panelOpen ? false : true })
+},
+toggleTopBar: function() {
+  this.setState({ topBar : this.state.topBar ? false : true })
 },
 loadStream: function(e) {
   $(e.target).addClass("hidden-force");
@@ -40,6 +46,13 @@ loadRecording: function(e) {
 
   $(".video-embed iframe").attr("src", url);
   $(".options-belt .auth-needed .stream").removeClass("hidden-force");
+},
+sendMessage: function() {
+  window.open("http://www.twitch.tv/message/compose?to=PieceDigital", "_blank");
+},
+select: function(e) {
+  console.log("stuffffff")
+  e.target.select();
 },
 componentDidMount: function() {
   var self = this;
@@ -79,13 +92,6 @@ render: function render() {
 var DocumentChild = React.createClass({
 displayName: "RenderDocument",
 
-sendMessage: function() {
-  window.open("http://www.twitch.tv/message/compose?to=PieceDigital", "_blank");
-},
-select: function(e) {
-  console.log("stuffffff")
-  e.target.select();
-},
 render: function render() {
   return (function anonymous(data,config
 /**/) {
@@ -93,8 +99,11 @@ data = data || {};
 var nodes = (function jsx() {
 
 with (data) return React.createElement("div", {id: "render-document", className: ""}, 
-  React.createElement("div", {className: "top-bar"}, 
+  React.createElement("div", {className: "top-bar" + (this.props.state.topBar ? "" : " closed")}, 
     React.createElement("div", {className: "options"}, 
+      React.createElement("div", {className: "btn-default toggle-top-bar", onClick: this.props.toggleTopBar}, 
+        "^"
+      ), 
       React.createElement("div", {className: "btn-default toggle-side-panel", onClick: this.props.toggleSidePanel}, 
         "Side Panel"
       )
@@ -108,60 +117,63 @@ with (data) return React.createElement("div", {id: "render-document", className:
       )
     )
   ), 
-  React.createElement("div", {className: "page"}, 
+  React.createElement("div", {className: "page" + (this.props.state.topBar ? "" : " closed")}, 
 
-  	React.createElement("div", {className: "side-panel"}, 
-      React.createElement("div", {className: "profile-image"}, 
-        React.createElement("div", {className: ""}, 
-          React.createElement("img", {className: "", src: this.props.state.userData.logo}), 
-          React.createElement("div", {className: "channel-status"}, 
-            React.createElement("h3", {className: ""}, "Offline")
-          ), 
-          React.createElement("div", {className: "channel-options"}, 
-            React.createElement("div", {className: "message"}, 
-              React.createElement("a", {className: "", href: `http://www.twitch.tv/message/compose?to=${this.props.state.userData.name}`, target: "_blank"}, "Message")
+  	React.createElement("div", {className:  "side-panel" + (this.props.state.panelOpen ? " open" : "") }, 
+      React.createElement("div", {className: "container"}, 
+        React.createElement("div", {className: "profile-image"}, 
+          React.createElement("div", {className: ""}, 
+            React.createElement("img", {className: "", src: this.props.state.userData.logo}), 
+            React.createElement("div", {className: "channel-status"}, 
+              React.createElement("h3", {className: ""}, "Offline")
+            ), 
+            React.createElement("span", null, "|"), 
+            React.createElement("div", {className: "channel-options"}, 
+              React.createElement("div", {className: "message"}, 
+                React.createElement("a", {className: "", href: `http://www.twitch.tv/message/compose?to=${this.props.state.userData.name}`, target: "_blank"}, "Message")
+              )
             )
           )
-        )
-      ), 
-      React.createElement("div", {className: "channel-name"}, 
-        React.createElement("h3", {className: ""}, this.props.state.userData.display_name)
-      ), 
-      React.createElement("div", {className: "separator"}), 
-      React.createElement("div", {className: "channel-bio"}, 
-        React.createElement("p", {className: ""}, this.props.state.userData.bio)
-      ), 
-      React.createElement("div", {className: "separator"}), 
-      React.createElement("div", {className: "social-media"}, 
-        React.createElement("div", {className: "title"}, 
-          React.createElement("h4", {className: ""}, "Social Media")
         ), 
-        React.createElement("div", {className: "icons"}, 
-          React.createElement("div", {className: "icon"}, 
-            React.createElement("a", {href: "http://twitter.com/piecedigital"}, 
-              React.createElement("img", {src: "/assets/twitter.png"})
-            )
+        React.createElement("div", {className: "channel-name"}, 
+          React.createElement("h3", {className: ""}, this.props.state.userData.display_name)
+        ), 
+        React.createElement("div", {className: "separator"}), 
+        React.createElement("div", {className: "channel-bio"}, 
+          React.createElement("p", {className: ""}, this.props.state.userData.bio)
+        ), 
+        React.createElement("div", {className: "separator"}), 
+        React.createElement("div", {className: "social-media"}, 
+          React.createElement("div", {className: "title"}, 
+            React.createElement("h4", {className: ""}, "Social Media")
           ), 
-          React.createElement("div", {className: "icon"}, 
-            React.createElement("a", {href: "http://facebook.com/piecedigitalstudios"}, 
-              React.createElement("img", {src: "/assets/facebook.png"})
-            )
-          ), 
-          React.createElement("div", {className: "icon"}, 
-            React.createElement("a", {href: "http://instagram.com/piecedigitalstudios"}, 
-              React.createElement("img", {src: "/assets/instagram.png"})
-            )
-          ), 
-          React.createElement("div", {className: "icon"}, 
-            React.createElement("a", {href: "http://tumblr.com/piecedigitalstudios"}, 
-              React.createElement("img", {src: "/assets/tumblr.png"})
+          React.createElement("div", {className: "icons"}, 
+            React.createElement("div", {className: "icon"}, 
+              React.createElement("a", {href: "http://twitter.com/piecedigital"}, 
+                React.createElement("img", {src: "/assets/twitter.png"})
+              )
+            ), 
+            React.createElement("div", {className: "icon"}, 
+              React.createElement("a", {href: "http://facebook.com/piecedigitalstudios"}, 
+                React.createElement("img", {src: "/assets/facebook.png"})
+              )
+            ), 
+            React.createElement("div", {className: "icon"}, 
+              React.createElement("a", {href: "http://instagram.com/piecedigitalstudios"}, 
+                React.createElement("img", {src: "/assets/instagram.png"})
+              )
+            ), 
+            React.createElement("div", {className: "icon"}, 
+              React.createElement("a", {href: "http://tumblr.com/piecedigitalstudios"}, 
+                React.createElement("img", {src: "/assets/tumblr.png"})
+              )
             )
           )
         )
       )
     ), 
 
-    React.createElement("div", {className: "main-section"}, 
+    React.createElement("div", {className: "main-section" + (this.props.state.theaterMode ? " theater" : "")}, 
       React.createElement("div", {className: "header"}, 
         React.createElement("div", {className: "profile-image"}, 
           React.createElement("div", {className: "image-container"}, 
