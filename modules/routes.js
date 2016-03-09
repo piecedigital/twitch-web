@@ -13,7 +13,7 @@ app
 		res.clearCookie("app-redirect");
 		res.redirect(redirectURL);
 	} else {
-		res.send("ok");
+		res.send("try going to a url like this: /user/<username> (ex: /user/twitch)");
 	}
 })
 .get("/user/:username", function(req, res, next) {
